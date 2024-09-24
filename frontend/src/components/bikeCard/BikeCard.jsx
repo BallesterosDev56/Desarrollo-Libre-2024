@@ -7,10 +7,10 @@ export const BikeCard = ({imagen, regional})=> {
             <div className="card-container">
                 <img className='image-card' src={imagen} alt="image-card" />
                 <div className="flex-block">
-                    <p><strong>{regional}</strong><span className='soft-text'>({quantity})·{country}</span></p>
+                    <p><span className='soft-text'>({10})·{regional}</span></p>
                 </div>
                 <div className="description">
-                    <p>{description}</p>
+                    <p>description</p>
                 </div>
                 <div className="button--container">
                     <button className='btn btn-success'>Alquilar</button>

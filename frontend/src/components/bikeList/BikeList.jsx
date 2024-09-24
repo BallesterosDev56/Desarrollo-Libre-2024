@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { fetchBikes } from "../../logic/fetchBikes/FetchBikes";
+import { BikeCard } from "../bikeCard/BikeCard";
 
 export const BikeList = ({regional})=> {
 
     useEffect(()=> {
         fetchBikes(regional).then((bikes)=> {
-            console.log(bikes);
+            console.log(bikes.result);
             
         })
 
@@ -13,7 +14,8 @@ export const BikeList = ({regional})=> {
     
     return(
         <section>
-            <h2>bikelist</h2>
+            <BikeCard 
+            ></BikeCard>
         </section>
     )
 }
