@@ -1,0 +1,29 @@
+.card-container {
+    width: 300px;
+    padding: 10px 0;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.image-card {
+    width: 300px;
+    border-radius: 22px;
+}
+
+strong {
+    margin-right: 4px;
+}
+
+.flex-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+}
+
+.description p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 5px;
+    margin-top: -6px;
+}
