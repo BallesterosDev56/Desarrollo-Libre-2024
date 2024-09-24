@@ -68,7 +68,7 @@ export const Login = ()=> {
                         <label htmlFor="passwordLogin" className="form-label fw-bold">Contraseña</label>
                         <input {...register('userPassword')} type="password" className="form-control" id="passwordLogin" placeholder="Ingresa tu contraseña" required/>
                     </div>
-                    <button type="submit" className="btn btn-primary w-100 mt-3">Login</button>
+                    <button type="submit" className="btn btn-success w-100 mt-3">Login</button>
                     <div className="text-center mt-3">
                         <small>¿No tienes cuenta? 
                         <Link to={'/register'} className="text-decoration-none mx-2">Regístrate aquí</Link>

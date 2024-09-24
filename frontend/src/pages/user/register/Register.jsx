@@ -3,20 +3,25 @@ import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { fetchRegister } from '../../../logic/fetchRegister/FetchRegister'
 import { registerSuccess } from '../../../helpers/alerts/Alerts'
+import { useAuth } from '../../../auth/authUser/AuthUser'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const Register = ()=> {
     
+    const navigate = useNavigate();
     const {register, handleSubmit, reset, formState: {errors}} = useForm();
+    const [render, setRender] = useState(null);
+    const {login} = useAuth();
 
     //creamos la funcion que maneja los datos del formulario:
     const onSubmit = (data)=> {
         if (data.userPassword === data.repeatUserPassword) {
-            console.log(data);
             
             //creamos el objeto con los datos del usuario
             const userData = {
                 userName : data.userName,
-                userDocument : data.userDocument,
+                userDocument : data.userDocument.toString(),
                 userEstrato : data.userEstrato,
                 userEmail : data.userEmail,
                 userPassword : data.userPassword,
@@ -30,17 +35,26 @@ export const Register = ()=> {
                     // }
                     login();
                     Swal.fire(registerSuccess);
+                    setRender(true);
     
                 } else {
-                    console.log(response.error);
+                    console.log(response.error[0]);
                     
                 }
             })
 
-            //reset();
+            reset();
         }
         
     }
+    
+    //comprobamos el cambio de estado:
+    useEffect(()=> {
+        if (render) {
+            navigate('/home');
+        }
+
+    }, [render])
 
     return(
         <section className="register--section">
@@ -56,7 +70,7 @@ export const Register = ()=> {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="cedula" className="form-label fw-bold">Cédula *</label>
-                        <input {...register('userDocument')} type="text" className="form-control" id="cedula" placeholder="Ingresa tu cédula" min={10} required/>
+                        <input {...register('userDocument')} type="number" className="form-control" id="cedula" placeholder="Ingresa tu cédula" min={10} required/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="emailRegister" className="form-label fw-bold">Correo Electrónico *</label>
@@ -80,7 +94,7 @@ export const Register = ()=> {
                         </label>
                         <input className="form-check-input" type="checkbox" value=""/>
                     </div>
-                    <button type="submit" className="btn btn-primary w-100 mt-4">Registrarse</button>
+                    <button type="submit" className="btn btn-success w-100 mt-4">Registrarse</button>
                     <div className="text-center mt-3">
                         <small>¿Ya tienes cuenta? 
                             <Link to={'/login'} className="text-decoration-none mx-2">Inicia sesión aquí</Link>
