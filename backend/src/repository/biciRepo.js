@@ -1,7 +1,7 @@
 export async function getBikesByRegion(region) {
     try{
         const [result] = await db.query('SELECT * FROM bikes WHERE regional = ?', [region])
-        if(!result){
+        if(result.length == 0){
             return null
         }else{
             return result
@@ -15,7 +15,7 @@ export async function getBikesByRegion(region) {
 export async function getBikesById(bikeID) {
     try{
         const [result] = await db.query('SELECT * FROM bikes WHERE bike_id = ?', [bikeID])
-        if(!result){
+        if(result.length == 0){
             return null
         }else{
             return result[0]

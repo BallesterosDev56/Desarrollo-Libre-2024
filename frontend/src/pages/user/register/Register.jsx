@@ -1,5 +1,7 @@
+import './register.css'
 import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
+import { fetchRegister } from '../../../logic/fetchRegister/FetchRegister'
 
 export const Register = ()=> {
     
@@ -8,14 +10,28 @@ export const Register = ()=> {
     //creamos la funcion que maneja los datos del formulario:
     const onSubmit = (data)=> {
         if (data.userPassword === data.repeatUserPassword) {
-            console.log(data);  
+            console.log(data);
+            
+            //creamos el objeto con los datos del usuario
+            const userData = {
+                userName : data.userName,
+                userDocument : data.userDocument,
+                userEstrato : data.userEstrato,
+                userEmail : data.userEmail,
+                userPassword : data.userPassword,
+            }
+
+            //hacemos el fetch al registro de usuario:
+            fetchRegister(userData);
+
             //reset();
         }
         
     }
 
     return(
-            <div className="container d-flex align-items-center justify-content-center py-5 min-vh-100">
+        <section className="register--section">
+            <div className="container d-flex align-items-center justify-content-center py-4 min-vh-100">
                 <div className="card shadow-lg px-4 col-7">
                 <div className="card-body">
                     <h2 id="formTitle" className="card-title text-center mb-4 fs-1">Register</h2>
@@ -62,5 +78,6 @@ export const Register = ()=> {
                 </div>
                 </div>
             </div>
+        </section>
     )
 }

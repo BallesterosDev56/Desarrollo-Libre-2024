@@ -1,16 +1,15 @@
 import {db} from '../config/db.js'
 
-export async function getUserByName(name) {
+export async function getUserByEmail(email) {
     try{
-        const [result] = await db.query('SELECT * FROM users WHERE nombre = ?', [name])
-        if(!result){
+        const [result] = await db.query('SELECT * FROM users WHERE correo = ?', [email])
+        if(result.length == 0){
             return null
         }else{
             return result[0]
         }
     }catch(err){
         console.log(err)
-        return 'Error'
     }
 }
 
@@ -24,6 +23,5 @@ export async function createUser(data) {
         }
     }catch(err){
         console.log(err)
-        return err
     }
 }
