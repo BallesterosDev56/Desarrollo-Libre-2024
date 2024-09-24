@@ -18,12 +18,12 @@ export async function createUser(data) {
     try{
         const [result] = await db.query('INSERT INTO users (nombre, documento, estrato, correo, contrasena, tipo) VALUES (?,?,?,?,?,?)', [data.userName, data.userDocument, data.userEstrato, data.userEmail, data.userPassword, 'User'])
         if(result.affectedRows == 0){
-            return null
+            return false
         }else{
-            return true
+            return 'true'
         }
     }catch(err){
         console.log(err)
-        return 'Error'
+        return err
     }
 }
