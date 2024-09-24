@@ -10,7 +10,7 @@ export async function registerUser(req, res) {
         if((result !== 'true' )){
             return res.status(500).json({success: false, message: 'Error in the register of the user', error: err})
         }else{
-            
+
             res.status(201).json({success: true, message: 'Successfull register', result: true})
         }
     }catch(err){
@@ -21,6 +21,7 @@ export async function registerUser(req, res) {
         }
     }
 }
+
 
 export async function loginUser(req, res) {
     try{

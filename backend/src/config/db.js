@@ -6,3 +6,4 @@ export const db = mysql.createPool({
     password: '1234',
     database: 'reto2024'
 }) 
+

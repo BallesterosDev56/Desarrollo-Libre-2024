@@ -12,6 +12,7 @@ export async function getBikesByRegion(region) {
     }
 }
 
+
 export async function getBikesById(bikeID) {
     try{
         const [result] = await db.query('SELECT * FROM bikes WHERE bike_id = ?', [bikeID])

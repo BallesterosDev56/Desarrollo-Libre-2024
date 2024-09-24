@@ -13,6 +13,7 @@ export async function getUserByEmail(email) {
     }
 }
 
+
 export async function createUser(data) {
     try{
         const [result] = await db.query('INSERT INTO users (nombre, documento, estrato, correo, contrasena, tipo) VALUES (?,?,?,?,?,?)', [data.userName, data.userDocument, data.userEstrato, data.userEmail, data.userPassword, 'User'])
