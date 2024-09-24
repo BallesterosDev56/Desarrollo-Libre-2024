@@ -3,7 +3,7 @@ export const fetchLogin = async (userData)=> {
         let response = await fetch('http://localhost:3000/login', {
             method: 'POST',
             headers: {
-                'Content-type' : 'application/json'
+                'Content-Type' : 'application/json'
             },
             body : JSON.stringify(userData),
         })
