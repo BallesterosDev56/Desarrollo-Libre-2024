@@ -5,9 +5,9 @@ dotenv.config()
 import { registerUser, loginUser } from './src/controllers/userController.js'
 
 const app = express()
+app.use(cors())
 
 app.use(express.json())
-app.use(cors())
 
 app.post('/register', registerUser)
 app.post('/login', loginUser)
