@@ -9,6 +9,6 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.post('/', registerUser)
+app.post('/register', registerUser)
 
 app.listen(process.env.PORT, () => {console.log(`Server on port ${process.env.PORT}`)})
