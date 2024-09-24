@@ -39,7 +39,7 @@ export const Register = ()=> {
                     <form onSubmit={handleSubmit(onSubmit)} id="registerForm">
                     <div className="mb-3">
                         <label htmlFor="username" className="form-label fw-bold">Nombre completo *</label>
-                        <input {...register('username')} type="text" className="form-control" id="username" placeholder="Ingresa tu nombre de usuario" required/>
+                        <input {...register('userName')} type="text" className="form-control" id="username" placeholder="Ingresa tu nombre de usuario" required/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="cedula" className="form-label fw-bold">Cédula *</label>
