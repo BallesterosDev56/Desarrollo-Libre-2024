@@ -1,10 +1,13 @@
 CREATE DATABASE reto2024;
+use reto2024;
+
 CREATE TABLE users(
 	user_id INT AUTO_INCREMENT PRIMARY KEY,
-	nombre VARCHAR(100),
-    documento VARCHAR(15),
-    correo VARCHAR(100),
-    contrasena VARCHAR(100),
+	nombre VARCHAR(100) NOT NULL,
+    documento VARCHAR(15) NOT NULL,
+    estrato VARCHAR(2) NOT NULL,
+    correo VARCHAR(100) NOT NULL,
+    contrasena VARCHAR(100) NOT NULL,
     tipo VARCHAR(6)
 );
 
