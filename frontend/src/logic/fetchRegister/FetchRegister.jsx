@@ -8,9 +8,11 @@ export const fetchRegister = async (userData)=> {
             body : JSON.stringify(userData)
         })
         let data = await response.json();
+        
         return data;
 
     } catch (error) {
+        console.log(error);
         
     }
 }

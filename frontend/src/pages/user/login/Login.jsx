@@ -2,28 +2,55 @@ import './login.css'
 import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { fetchLogin } from '../../../logic/fetchLogin/FetchLogin'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../../auth/authUser/AuthUser'
+import { useEffect, useState } from 'react'
 
 export const Login = ()=> {
 
     const {register, handleSubmit, reset, formState: {errors}} = useForm();
+    const navigate = useNavigate();
+    const {login} = useAuth();
+    const [render, setRender] = useState(null);
 
     //creamos la funcion que maneja los datos del formulario:
     const onSubmit = (data)=> {
         console.log(data);
         //creamos el objeto con los datos del usuario
         const userData = {
-            userName : data.userName,
-            userDocument : data.userDocument,
-            userEstrato : data.userEstrato,
             userEmail : data.userEmail,
             userPassword : data.userPassword,
         }
 
-        //hacemos el fetch al inicio de sesion del usuario:
-        fetchLogin(userData);
+        //hacemos el fetch al inicio de sesión del usuario:
+        fetchLogin(userData).then((response)=> {
+            if (response.success) {
+                // if (response.userType == 'Admin') {
+                //     console.log(response);
+                // }
+                login();
+                setRender(true);
+
+            } else {
+                console.log(response.error);
+                
+            }
+            
+        }).catch((err)=> {
+            console.log(err);
+            
+        })
         //reset();
         
     }
+
+    //comprobamos el cambio de estado:
+    useEffect(()=> {
+        if (render) {
+            navigate('/home');
+        }
+
+    }, [render])
 
     return(
         <section className="login--section">
