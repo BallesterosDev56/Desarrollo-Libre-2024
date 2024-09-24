@@ -5,12 +5,14 @@ export const fetchLogin = async (userData)=> {
             headers: {
                 'Content-type' : 'application/json'
             },
-            body : userData
+            body : JSON.stringify(userData),
         })
         let data = await response.json();
+        
         return data;
 
     } catch (error) {
+        console.log(error);
         
     }
 }

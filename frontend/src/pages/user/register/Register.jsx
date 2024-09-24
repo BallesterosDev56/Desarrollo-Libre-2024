@@ -2,6 +2,7 @@ import './register.css'
 import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { fetchRegister } from '../../../logic/fetchRegister/FetchRegister'
+import { registerSuccess } from '../../../helpers/alerts/Alerts'
 
 export const Register = ()=> {
     
@@ -22,7 +23,19 @@ export const Register = ()=> {
             }
 
             //hacemos el fetch al registro de usuario:
-            fetchRegister(userData);
+            fetchRegister(userData).then((response)=> {
+                if (response.success) {
+                    // if (response.userType == 'Admin') {
+                    //     console.log(response);
+                    // }
+                    login();
+                    Swal.fire(registerSuccess);
+    
+                } else {
+                    console.log(response.error);
+                    
+                }
+            })
 
             //reset();
         }
@@ -43,7 +56,7 @@ export const Register = ()=> {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="cedula" className="form-label fw-bold">Cédula *</label>
-                        <input {...register('userDocument')} type="text" className="form-control" id="cedula" placeholder="Ingresa tu cédula" required/>
+                        <input {...register('userDocument')} type="text" className="form-control" id="cedula" placeholder="Ingresa tu cédula" min={10} required/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="emailRegister" className="form-label fw-bold">Correo Electrónico *</label>

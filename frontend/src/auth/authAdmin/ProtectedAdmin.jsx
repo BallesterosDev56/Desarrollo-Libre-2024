@@ -1,4 +1,3 @@
-import NotFoundPage from "../pages/notFoundPage/NotFoundPage";
 
 export const ProtectedAdmin =  ({children})=>{
     const adminState = sessionStorage.getItem('adminState');

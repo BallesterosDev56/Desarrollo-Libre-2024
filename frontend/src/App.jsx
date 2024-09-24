@@ -3,9 +3,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { UserProvider } from './auth/authUser/AuthUser';
 import { AdminProvider } from './auth/authAdmin/AuthAdmin';
 
+//importamos los componentes protectores
+import {ProtectedUser} from './auth/authUser/ProtectedUser'
+import {ProtectedAdmin} from './auth/authAdmin/ProtectedAdmin'
+
 //paginas a renderizar:
-import { Home } from './pages/user/home/Home';
 import { Redirect } from './pages/redirect/Redirect';
+import { Home } from './pages/user/home/Home';
+import { Regional } from './pages/user/regional/Regional';
 import { Login } from './pages/user/login/Login';
 import { Register } from './pages/user/register/Register';
 
@@ -21,7 +26,7 @@ const routes = createBrowserRouter([
   },
   {
     path: '/home/:regional',
-    element: <Home></Home>
+    element: <Regional></Regional>
   },
   {
     path: '/login',
@@ -30,7 +35,7 @@ const routes = createBrowserRouter([
   {
     path: '/register',
     element: <Register></Register>
-  }
+  },
 ]);
 
 
