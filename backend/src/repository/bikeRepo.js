@@ -1,6 +1,7 @@
+import { db } from "../config/db.js"
 export async function getBikesByRegion(region) {
     try{
-        const [result] = await db.query('SELECT * FROM bikes WHERE regional = ?', [region])
+        const [result] = await db.query('SELECT * FROM bikes WHERE regional = ? AND estado = false', [region])
         if(result.length == 0){
             return null
         }else{
