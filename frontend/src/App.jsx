@@ -15,8 +15,10 @@ import { Login } from './pages/user/login/Login';
 import { Register } from './pages/user/register/Register';
 import { Alquilar } from './pages/user/alquilar/Alquilar';
 
+
 // paginas de administrador: 
 import { HomeAdmin } from './pages/admin/homeAdmin/HomeAdmin';
+import { Analitics } from './pages/admin/analitics/Analitics';
 
 //creamos el router provider con las rutas y los componentes:
 const routes = createBrowserRouter([
@@ -51,6 +53,13 @@ const routes = createBrowserRouter([
       <HomeAdmin></HomeAdmin>
     </ProtectedAdmin>
   },
+  {
+    path: '/admin_home/analitics',
+    element: 
+    <ProtectedAdmin>
+      <Analitics></Analitics>
+    </ProtectedAdmin>
+  }
 ]);
 
 

@@ -1,0 +1,30 @@
+.introduction--container {
+    background-color: #F9FBF7;
+    gap: 7vw;
+}
+
+/* Columna izquierda (Texto y botones) */
+.left-column {
+    flex: 1;
+}
+
+/* Columna derecha (Imagen) */
+.right-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.regional-image {
+    width: 675px;
+}
+
+/* Botones de selección */
+.transition-button {
+    transition: transform 0.3s ease;
+}
+
+.transition-button:hover {
+    transform: scale(1.05);
+}
