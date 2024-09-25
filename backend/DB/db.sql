@@ -40,5 +40,6 @@ CREATE TABLE rentals(
    FOREIGN KEY (id_bike) REFERENCES bikes(bike_id)
    );
    select * from rentals;
+   UPDATE rentals SET estado = true WHERE id_bike = 3 AND id_user = 5;
 drop table rentals;
 insert into rentals(price, regional,month,estado, id_user, id_bike) values(20, "Antioquia", "Enero", false, 2, 2),(30, "Antioquia", "Enero",false,1,1),(20, "Antioquia", "Febrero",false,1,1),(80, "Antioquia", "Febrero",false,1,1),(20, "Cundinamarca", "Enero",false,1,1),(20, "Valle", "Enero", false,1,1),(20, "Caldas", "Enero", false,1,1),(20, "Atlantico", "Enero", false,1,1);

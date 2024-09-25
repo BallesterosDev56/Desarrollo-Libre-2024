@@ -9,7 +9,7 @@ export const updateBikeSchema = z.object({
     regional: z.enum(['Antioquia','Cundinamarca', 'Valle', 'Caldas', 'Atlantico'])
 })
 
-export const payBikeRent = z.object({
+export const payBikeRentSchema = z.object({
     bikeId: z.number(),
     userId: z.number()
 })
