@@ -26,3 +26,16 @@ export async function createUser(data) {
         console.log(err)
     }
 }
+
+export async function getUserByIdRepo(id) {
+    try{
+        const [result] = await db.query('SELECT * FROM users WHERE user_id = ?', [id])
+        if(result.length == 0){
+            return null
+        }else{
+            return result[0]
+        }
+    }catch(err){
+        console.log(err)
+    }
+}

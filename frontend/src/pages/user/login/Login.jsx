@@ -30,7 +30,10 @@ export const Login = ()=> {
                 // if (response.userType == 'Admin') {
                 //     console.log(response);
                 // }
-                sessionStorage.setItem('userData', response.result);
+                console.log(response.result.user_id);
+                
+                sessionStorage.setItem('userData', response.result.user_id);
+                sessionStorage.setItem('userEstrato', response.result.estrato);
                 login();
                 setRender(true);
 

@@ -12,3 +12,5 @@ export const userSchema = z.object({
     userEmail: z.string(),
     userPassword: z.string()
 })
+
+export const userIdSchema = z.string()

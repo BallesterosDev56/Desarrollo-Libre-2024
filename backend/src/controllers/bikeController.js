@@ -25,7 +25,7 @@ export async function getBikes(req, res){
 export async function rentBike(req, res) {
     try{
         const data = updateBikeSchema.parse(req.body)
-        const result = await updateBikeState(data.bikeId, false)
+        const result = await updateBikeState(data.bikeId, true)
         const result2 = await postNewRent(data)
         if(!result || !result2){
             return res.status(500).json({success: false, message: "The bike doesn't exist"})
