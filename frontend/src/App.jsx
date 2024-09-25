@@ -60,7 +60,7 @@ const routes = createBrowserRouter([
     <ProtectedAdmin>
       <Analitics></Analitics>
     </ProtectedAdmin>
-  }
+  },
   {
     path: '/pagar',
     element: <Pagar></Pagar>
