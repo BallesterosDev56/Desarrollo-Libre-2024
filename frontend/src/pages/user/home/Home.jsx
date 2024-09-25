@@ -4,6 +4,9 @@ import { verifyLog } from "../../../logic/verifyLog/verifyLog"
 import { AuthHeader } from '../../../components/header/AuthHeader';
 import { Header } from '../../../components/header/Header';
 import { Regionales } from '../../../components/regionales/Regionales';
+import { Slogan } from '../../../components/slogan/Slogan';
+import { Footer } from '../../../components/footer/Footer';
+import { Introduction } from '../../../components/introduction/Introduction';
 
 export const Home = ()=> {
     const [renderAuth, setRenderAuth] = useState(false);
@@ -25,6 +28,9 @@ export const Home = ()=> {
                 <>
                     <Header></Header>
                     <Regionales></Regionales>
+                    <Introduction></Introduction>
+                    <Slogan></Slogan>
+                    <Footer></Footer>
                 </>
                 
                 
@@ -34,7 +40,10 @@ export const Home = ()=> {
                 // si el usuario ESTÁ autenticado se va a rederizar esto:
                 <>
                     <AuthHeader></AuthHeader>
+                    <Introduction></Introduction>
                     <Regionales></Regionales>
+                    <Slogan></Slogan>
+                    <Footer></Footer>
                 </>
             }
 

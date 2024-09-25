@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { differenceInDays } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
-import './App.css'
 import {useParams} from 'react-router-dom'
 
 export const Alquilar = ()=> {

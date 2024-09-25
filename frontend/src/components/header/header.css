@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap');
+
+#font--title {
+    font-family: 'chaupilomene';
+    color: #FFF7BC;
+}
+.bg--custom {
+    background-color: #E3EDFD;
+}

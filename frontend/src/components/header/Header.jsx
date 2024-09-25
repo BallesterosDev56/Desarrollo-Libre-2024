@@ -1,21 +1,27 @@
 import { Link } from "react-router-dom"
 import logo from '../../assets/ECOSENA_ONLY.png'
+import title from '../../assets/title.png'
 
 export const Header = ()=> {
     return (
         <header>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light px-5">
+          <nav className="bg--custom navbar navbar-expand-lg navbar-light px-3">
             <div className="container-fluid">
               {/* Logo y Titulo */}
-              <a className="navbar-brand d-flex align-items-center" href="#">
+              <a className="navbar-brand d-flex align-items-center" href="/home">
                 <img 
                   src={logo} 
                   alt="Logo" 
-                  width="100" 
-                  height="100" 
-                  className="d-inline-block align-text-top" 
+                  width="100"
+                  className="d-inline-block align-text-top mx-3" 
                 />
-                <span className="ms-2 fs-1">ECO <span className="fs-1">SENA</span></span>
+                <img 
+                  src={title} 
+                  alt="title" 
+                  width="200"
+                  className="d-inline-block" 
+                />
+                
               </a>
     
               {/* Botón para moviles */}
@@ -35,10 +41,10 @@ export const Header = ()=> {
               <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a className="nav-link fs-5" href="#">Inicia Sesión</a>
+                    <a className="nav-link fs-3" href="/login">Inicia Sesión</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link fs-5" href="#">Regístrate</a>
+                    <a className="nav-link fs-3" href="/register">Regístrate</a>
                   </li>
                 </ul>
               </div>
