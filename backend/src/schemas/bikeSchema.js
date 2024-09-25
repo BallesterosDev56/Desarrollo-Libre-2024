@@ -10,5 +10,6 @@ export const updateBikeSchema = z.object({
 })
 
 export const payBikeRent = z.object({
-    price: z.number()
+    bikeId: z.number(),
+    userId: z.number()
 })
