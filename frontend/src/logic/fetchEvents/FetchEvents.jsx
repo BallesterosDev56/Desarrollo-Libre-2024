@@ -1,9 +1,13 @@
 export const fetchEvents = async (region) => {
   try {
-    const response = await fetch(`https://api.ciclovia.com/events/${region}`);
+    const response = await fetch(`http://localhost:3000/events/${region}`);
     const data = await response.json();
-    return data;
-
+    if(data.success === true){
+      return data;
+    }else{
+      console.log(data);
+      
+    }
   } catch (error) {
     console.error("Error fetching events:", error);
 

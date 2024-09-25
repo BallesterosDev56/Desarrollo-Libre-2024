@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import logo from '../../assets/ECOSENA_ONLY.png'
+import title from '../../assets/title.png'
 
 export const AuthHeader = ()=> {
     return (
