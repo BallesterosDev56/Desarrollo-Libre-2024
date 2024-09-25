@@ -1,4 +1,4 @@
-import { bikeRegionSchema, updateBikeSchema } from "../schemas/bikeSchema.js"
+import { bikeRegionSchema, updateBikeSchema, payBikeRentSchema } from "../schemas/bikeSchema.js"
 import { getBikesByRegion, updateBikeState } from "../repository/bikeRepo.js"
 import { postNewRent, payRent } from "../repository/rentRepo.js"
 import { ZodError } from "zod"
@@ -6,7 +6,7 @@ import { ZodError } from "zod"
 export async function getBikes(req, res){
     try{
         console.log(req.body);
-        const region = bikeRegionSchema.parse(req.body.region)
+        const region = bikeRegionSchema.parse(req.params.region)
         const result = await getBikesByRegion(region)
         
         if(!result){
@@ -44,7 +44,7 @@ export async function rentBike(req, res) {
 
 export async function payBikeRent(req, res){
     try{
-        const data = updateBikeSchema.parse(req.body)
+        const data = payBikeRentSchema.parse(req.body)
         const result = await updateBikeState(data.bikeId, false)
         const result2 = await payRent(data)
         if(!result || !result2){

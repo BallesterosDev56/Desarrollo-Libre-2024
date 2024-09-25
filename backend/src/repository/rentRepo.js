@@ -43,7 +43,9 @@ export async function postNewRent(data) {
 
 export async function payRent(data) {
     try{
-        const [result] = await db.query('UPDATE rentals SET estado = ? WHERE id_bike = ? AND id_user = ?', [true, data.bikeID, data.userId])        
+        
+        const [result] = await db.query('UPDATE rentals SET estado = ? WHERE id_bike = ? AND id_user = ?', [true, data.bikeId, data.userId])        
+        console.log(data.bikeID, data.userId);
         if(result.affectedRows == 0){
             return null
         }else{
