@@ -10,7 +10,9 @@ CREATE TABLE users(
     contrasena VARCHAR(100) NOT NULL,
     tipo VARCHAR(6)
 );
-select * from rentals;
+
+insert into users (nombre, documento, estrato,correo,contrasena,tipo) values("Sena", "1234567891", 1, "sena@sena.edu.co", "ecosena", "Admin");
+
 CREATE TABLE bikes(
 	bike_id INT AUTO_INCREMENT PRIMARY KEY,
 	marca VARCHAR(100),

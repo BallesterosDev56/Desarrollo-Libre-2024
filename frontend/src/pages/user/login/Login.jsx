@@ -33,6 +33,7 @@ export const Login = ()=> {
                 console.log(response.result.user_id);
                 
                 sessionStorage.setItem('userData', response.result.user_id);
+                sessionStorage.setItem('userEstrato', response.result.estrato);
                 login();
                 setRender(true);
 

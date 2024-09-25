@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export const Alquilar = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [totalDays, setTotalDays] = useState(0);
+  const [estrato, setEstrato] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
   const [bike, setBike] = useState(null);
   const { bike_id } = useParams();
@@ -41,12 +41,12 @@ export const Alquilar = () => {
   //hacemos el post para crear la renta
   useEffect(() => {
     let userID = sessionStorage.getItem("userData");
-    console.log(userID);
-    
+    let userEstrato = sessionStorage.getItem("userEstrato");
     if(userID == null){
       setUserId("holi");
     }else{
       setUserId(userID);
+      setEstrato(userEstrato)
     }
 
     async function sendBikeData() {
@@ -83,12 +83,22 @@ export const Alquilar = () => {
     return 0;
   };
   const handleOnClick = () => {
-    setTotalDays(calculateTotalDays(startDate, endDate));
-    setTotalCost(calculateTotalDays(startDate, endDate) * bike.precio_d);
     if(userId === "holi"){
-      navigate("/login")
+      navigate("/login ")
+    }else if(estrato = 0 || estrato == 5 || estrato == 6){
+      setTotalDays(calculateTotalDays(startDate, endDate));
+      setTotalCost(calculateTotalDays(startDate, endDate) * bike.precio_d);
+    }else if (estrato == 1 || estrato == 2){
+      setTotalDays(calculateTotalDays(startDate, endDate));
+      setTotalCost(calculateTotalDays((startDate, endDate) * bike.precio_d) * 0.90);
+    }else if (estrato == 3 || estrato == 4){
+      setTotalDays(calculateTotalDays(startDate, endDate));
+      setTotalCost(calculateTotalDays((startDate, endDate) * bike.precio_d) * 0.95);
     }
   };
+  const calcularConDescuento = () =>{
+    calculateTotalDays(startDate, endDate) * bike.precio_d
+  }
   return (
     <>
       {bike ? (
@@ -122,15 +132,27 @@ export const Alquilar = () => {
                 placeholderText="Selecciona una fecha de fin"
               />
             </div>
-            {startDate && endDate ? (
+            {startDate && endDate && estrato != 0 ? (
               <>
                 <p>Dias totales: {calculateTotalDays(startDate, endDate)}</p>
-                <p>Cost total:{" "} {calculateTotalDays(startDate, endDate) * bike.precio_d}</p>
+                <p>Costo:{" "} {calculateTotalDays(startDate, endDate) * bike.precio_d}</p>
+                <p>Costo total con descuento por estrato:{" "} {calcularConDescuento}</p>
               </>
-            ): 
+            ): startDate && endDate ?
             (
               <p></p>
-            )}
+            ): (<p></p>)}
+            {
+              startDate && endDate && estrato != 0 ? (
+                <>
+                  <p>Dias totales: {calculateTotalDays(startDate, endDate)}</p>
+                  <p>Cost total:{" "} {calculateTotalDays(startDate, endDate) * bike.precio_d}</p>
+                </>
+              ): 
+              (
+                <p></p>
+              )
+            }
             <button onClick={handleOnClick}>Alquilar</button>
           </div>
         </div>
