@@ -8,7 +8,13 @@ export const BikeList = ({regional})=> {
 
     useEffect(()=> {
         fetchBikes(regional).then((bikes)=> {
-            setBikes(prev=> [...prev, ...bikes.result]);
+            if (Array.isArray(bikes)) {
+                setBikes(prev=> [...prev, ...bikes.result]);
+                
+            } else {
+                console.log(bikes);
+                
+            }
             
         })
 

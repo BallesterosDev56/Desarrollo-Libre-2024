@@ -23,13 +23,14 @@ export const Login = ()=> {
 
         //hacemos el fetch al inicio de sesión del usuario:
         fetchLogin(userData).then((response)=> {
-            console.log(response);
+            console.log(response.result);
+
             
             if (response.success) {
                 // if (response.userType == 'Admin') {
                 //     console.log(response);
                 // }
-                
+                sessionStorage.setItem('userData', response.result);
                 login();
                 setRender(true);
 
@@ -45,7 +46,6 @@ export const Login = ()=> {
         //reset();
         
     }
-
     //comprobamos el cambio de estado:
     useEffect(()=> {
         if (render) {
@@ -59,7 +59,7 @@ export const Login = ()=> {
             <div className="container d-flex align-items-center justify-content-center min-vh-100">
                 <div className="card shadow-lg p-4" style={{width: '28rem'}}>
                 <div className="card-body">
-                    <h2 id="formTitle" className="card-title text-center mb-4 fs-1">Login</h2>
+                    <h2 id="formTitle" className="card-title text-center mb-4 fs-1">Inicia Sesión en ECO SENA</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} id="loginForm">
                     <div className="mb-3">
