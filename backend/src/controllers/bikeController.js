@@ -1,5 +1,6 @@
 import { bikeRegionSchema, updateBikeSchema } from "../schemas/bikeSchema.js"
 import { getBikesByRegion, updateBikeState } from "../repository/bikeRepo.js"
+import { postNewRent, payRent } from "../repository/rentRepo.js"
 import { ZodError } from "zod"
 
 export async function getBikes(req, res){
@@ -24,7 +25,8 @@ export async function rentBike(req, res) {
     try{
         const data = updateBikeSchema.parse(req.body)
         const result = await updateBikeState(data.bikeId, false)
-        if(!result){
+        const result2 = await postNewRent(data)
+        if(!result || !result2){
             return res.status(500).json({success: false, message: "The bike doesn't exist"})
         }else{
             return res.status(200).json({success: true, message: 'Successfull rent', result: result})
@@ -40,9 +42,10 @@ export async function rentBike(req, res) {
 
 export async function payBikeRent(req, res){
     try{
-        const id = updateBikeSchema.parse(req.body)
-        const result = await updateBikeState(id, false)
-        if(!result){
+        const data = updateBikeSchema.parse(req.body)
+        const result = await updateBikeState(data.bikeId, false)
+        const result2 = await payRent(data)
+        if(!result || !result2){
             return res.status(500).json({success: false, message: "The bike doesn't exist"})
         }else{
             return res.status(200).json({success: true, message: 'Successfull rent', result: result})

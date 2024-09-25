@@ -28,4 +28,30 @@ export async function getTotalStonksByMonth(month) {
 }
 
 
+export async function postNewRent(data) {
+    try{
+        const [result] = await db.query('INSERT INTO rentals (price, regional,month,estado, id_user, id_bike) VALUES (?,?,?,?,?,?)', [data.price, data.regional, "Septiembre", false, data.userId, data.bikeId])
+        if(result.affectedRows == 0){
+            return false
+        }else{
+            return 'true'
+        }
+    }catch(err){
+        console.log(err)
+    }
+}
+
+export async function payRent(data) {
+    try{
+        const [result] = await db.query('UPDATE rentals SET estado = ? WHERE id_bike = ? AND id_user = ?', [true, data.bikeID, data.userId])        
+        if(result.affectedRows == 0){
+            return null
+        }else{
+            return true
+        }
+    }catch(err){
+        console.log(err)
+        return 'Error'
+    }
+}
 // SELECT sum(price) as popo FROM rentals WHERE regional = "Medellin" AND month = "Enero"
