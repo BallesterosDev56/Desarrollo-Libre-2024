@@ -32,7 +32,7 @@ export async function getBikesById(bikeID) {
 
 export async function updateBikeState(bikeID, state) {
     try{
-        const [result] = await db.query('UPDATE bikes SET estado = ? WHERE bike_id = ?', [state, bikeID])
+        const [result] = await db.query('UPDATE bikes SET estado = ? WHERE bike_id = ?', [state, bikeID])        
         if(result.affectedRows == 0){
             return null
         }else{

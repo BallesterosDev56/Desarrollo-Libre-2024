@@ -1,8 +1,14 @@
 import z from 'zod'
  // Mejorar validaciones
-export const bikeRegion = z.enum(['Antioquia','Cundinamarca', 'Valle', 'Caldas', 'Atlantico'])
+export const bikeRegionSchema = z.enum(['Antioquia','Cundinamarca', 'Valle', 'Caldas', 'Atlantico'])
 
-export const userSchema = z.object({
-    userEmail: z.string(),
-    userPassword: z.string()
+export const updateBikeSchema = z.object({
+    userId: z.number(),
+    bikeId: z.number(),
+    price: z.number(),
+    regional: z.enum(['Antioquia','Cundinamarca', 'Valle', 'Caldas', 'Atlantico'])
+})
+
+export const payBikeRent = z.object({
+    price: z.number()
 })

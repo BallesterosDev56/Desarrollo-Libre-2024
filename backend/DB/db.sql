@@ -18,26 +18,29 @@ CREATE TABLE bikes(
     estado BOOLEAN,
     descripcion VARCHAR(400),
     url_img VARCHAR(170),
-    precio_h INT,
     precio_d INT,
-    regional VARCHAR(20)
+    regional VARCHAR(20),
+    id_user INT,
+    FOREIGN KEY (id_user) REFERENCES users(user_id)
+    
 );
-
-insert into bikes (marca, color, estado, url_img, precio_h, precio_d, regional, descripcion) values("Bicicleta de Ruta Roca Everest Carbono", "Negro", false, "https://todoparaciclismo.com/cdn/shop/files/IMG_8142-_1_300x.jpg?v=170913947", 10000, 70000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
-("Bicicleta Optimus Tucana Shimano", "Azul", false, "https://todoparaciclismo.com/cdn/shop/files/DSC_0395_300x.jpg?v=1708458276", 20000, 100000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
-("Bicicleta de Ruta Roca Everest Carbono", "Negro", false, "https://todoparaciclismo.com/cdn/shop/files/IMG_8142-_1_300x.jpg?v=170913947", 10000, 70000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
-("Bicicleta Optimus Tucana Shimano", "Azul", false, "https://todoparaciclismo.com/cdn/shop/files/DSC_0395_300x.jpg?v=1708458276", 20000, 100000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita");
-
+SELECT *from bikes;
+insert into bikes (marca, color, estado, url_img, id_user, precio_d, regional, descripcion) values("Bicicleta de Ruta Roca Everest Carbono", "Negro", false, "https://todoparaciclismo.com/cdn/shop/files/IMG_8142-_1_300x.jpg?v=170913947", 1, 70000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
+("Bicicleta Optimus Tucana Shimano", "Azul", false, "https://todoparaciclismo.com/cdn/shop/files/DSC_0395_300x.jpg?v=1708458276", 1, 100000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
+("Bicicleta de Ruta Roca Everest Carbono", "Negro", false, "https://todoparaciclismo.com/cdn/shop/files/IMG_8142-_1_300x.jpg?v=170913947", 1, 70000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
+("Bicicleta Optimus Tucana Shimano", "Azul", false, "https://todoparaciclismo.com/cdn/shop/files/DSC_0395_300x.jpg?v=1708458276", 1, 10000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita");
+select * from bikes;
 
 CREATE TABLE rentals(
    rent_id INT AUTO_INCREMENT PRIMARY KEY,
    price INT,
    regional VARCHAR(20),
-   month VARCHAR(20)
-);
-
-insert into rentals(price, regional,month) values(20, "Antioquia", "Enero"),(30, "Antioquia", "Enero"),(20, "Antioquia", "Febrero"),(80, "Antioquia", "Febrero");
-insert into rentals(price, regional,month) values(20, "Cundinamarca", "Enero");
-insert into rentals(price, regional,month) values(20, "Valle", "Enero");
-insert into rentals(price, regional,month) values(20, "Caldas", "Enero");
-insert into rentals(price, regional,month) values(20, "Atlantico", "Enero");
+   month VARCHAR(20),
+   estado BOOLEAN,
+   id_user INT,
+   id_bike INT,
+   FOREIGN KEY (id_user) REFERENCES users(user_id),
+   FOREIGN KEY (id_bike) REFERENCES bikes(bike_id)
+   );
+drop table rentals;
+insert into rentals(price, regional,month,estado, id_user, id_bike) values(20, "Antioquia", "Enero", false, 2, 2),(30, "Antioquia", "Enero",false,1,1),(20, "Antioquia", "Febrero",false,1,1),(80, "Antioquia", "Febrero",false,1,1),(20, "Cundinamarca", "Enero",false,1,1),(20, "Valle", "Enero", false,1,1),(20, "Caldas", "Enero", false,1,1),(20, "Atlantico", "Enero", false,1,1);
