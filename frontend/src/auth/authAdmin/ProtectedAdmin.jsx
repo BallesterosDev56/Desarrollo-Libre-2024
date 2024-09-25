@@ -7,8 +7,6 @@ export const ProtectedAdmin =  ({children})=>{
 
     useEffect(()=> {
         const adminState = sessionStorage.getItem('adminState');
-        console.log(adminState);
-        
         
         if(adminState === null) {
             setRender('false');

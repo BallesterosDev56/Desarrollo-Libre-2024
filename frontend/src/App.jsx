@@ -19,6 +19,7 @@ import { Alquilar } from './pages/user/alquilar/Alquilar';
 // paginas de administrador: 
 import { HomeAdmin } from './pages/admin/homeAdmin/HomeAdmin';
 import { Analitics } from './pages/admin/analitics/Analitics';
+import { CreateEvent } from './pages/admin/createEvent/CreateEvent';
 
 //creamos el router provider con las rutas y los componentes:
 const routes = createBrowserRouter([
@@ -58,6 +59,13 @@ const routes = createBrowserRouter([
     element: 
     <ProtectedAdmin>
       <Analitics></Analitics>
+    </ProtectedAdmin>
+  },
+  {
+    path: '/admin_home/create_event',
+    element: 
+    <ProtectedAdmin>
+      <CreateEvent></CreateEvent>
     </ProtectedAdmin>
   }
 ]);
