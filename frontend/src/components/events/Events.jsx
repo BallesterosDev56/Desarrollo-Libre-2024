@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchEvents } from "../../logic/fetchEvents/FetchEvents";
+import { joinEventSuccess } from "../../helpers/alerts/Alerts";
 
 export const Events = () => {
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -10,24 +11,31 @@ export const Events = () => {
     atlantico: "Atlántico",
     valle: "Valle",
     antioquia: "Antioquia",
+    cundinamarca: "Cundinamarca",
+    caldas: "Caldas"
   };
 
   const handleRegionChange = (event) => {
+    setEvents([])
     const region = event.target.value;
     setSelectedRegion(region);
     // console.log(region);
 
+    fetchEvents(region).then((response)=> {
+        console.log(response);
+        setEvents(...[response.result])
+    })
     setLoading(true);
     setTimeout(() => {
         setLoading(false);
-    }, 1500);
-    fetchEvents(region).then((response)=> {
-        console.log(response);
+        console.log(events);
         
-        setEvents(response)
-    })
+    }, 1500);
   };
 
+  const handleClick = () =>{
+    Swal.fire(joinEventSuccess);
+  }
   return (
     <div className="container mt-5">
       <h2 className="text-center display-3 my-5">Eventos que pueden ser de tu interés</h2>
@@ -60,7 +68,7 @@ export const Events = () => {
                 <span className="visually-hidden">Loading...</span>
               </div>
             </div>
-          ) : events.length > 0 ? (
+          ) : events[0] ? (
             <div className="card">
               <div className="card-header">
                 <h4>Eventos disponibles en {regions[selectedRegion]}</h4>
@@ -69,14 +77,15 @@ export const Events = () => {
                 {events.map((event, index) => (
                   <li key={index} className="list-group-item">
                     <strong>{event.name}</strong> <br />
-                    Fecha: {event.date} <br />
-                    Ubicación: {event.location}
+                    Fecha: {event.fecha} <br />
+                    Ubicación: {event.location} <br />
+                    <button onClick={handleClick} className="btn btn-success btn-md my-2">Inscribirme</button>
                   </li>
                 ))}
               </ul>
             </div>
           ) : selectedRegion && !loading ? (
-            <div className="alert alert- text-center">
+            <div className="alert alert-warning text-center">
               Parece que no hay eventos disponibles para {regions[selectedRegion]}.
             </div>
           ) : (

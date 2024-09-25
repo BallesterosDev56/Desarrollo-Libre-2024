@@ -26,3 +26,9 @@ export const userCreated = {
     icon: "success",
     title: "User created succesfully",
 }
+
+export const joinEventSuccess = {
+    icon: "success",
+    title: "¡En marcha!",
+    text: "Se ha registrado al evento correctamente",
+}

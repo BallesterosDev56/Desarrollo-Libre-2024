@@ -46,6 +46,7 @@ export async function payBikeRent(req, res){
         const data = payBikeRentSchema.parse(req.body)
         const result = await updateBikeState(data.bikeId, false)
         const result2 = await payRent(data)
+        const result3 = await sumStonk(data)
         if(!result || !result2){
             return res.status(500).json({success: false, message: "The bike doesn't exist"})
         }else{
