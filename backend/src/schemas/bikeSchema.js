@@ -3,8 +3,8 @@ import z from 'zod'
 export const bikeRegionSchema = z.enum(['Antioquia','Cundinamarca', 'Valle', 'Caldas', 'Atlantico'])
 
 export const updateBikeSchema = z.object({
-    userId: z.number(),
-    bikeId: z.number(),
+    userId: z.string(),
+    bikeId: z.string(),
     price: z.number(),
     regional: z.enum(['Antioquia','Cundinamarca', 'Valle', 'Caldas', 'Atlantico'])
 })
