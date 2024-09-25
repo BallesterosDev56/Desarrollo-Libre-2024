@@ -40,7 +40,7 @@ export const Regional = ()=> {
                 <>
                     <AuthHeader></AuthHeader>
                     <Events></Events>
-                    <BikeList></BikeList>
+                    <BikeList regional={regional}></BikeList>
                     
                 </>
             }
