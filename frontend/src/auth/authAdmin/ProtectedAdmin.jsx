@@ -1,12 +1,28 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ProtectedAdmin =  ({children})=>{
-    const adminState = sessionStorage.getItem('adminState');
+    const [render, setRender] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(()=> {
+        const adminState = sessionStorage.getItem('adminState');
+        console.log(adminState);
+        
+        
+        if(adminState === null) {
+            setRender('false');
+        }
+
+    }, [])
     
-    if(adminState === 'false') {
-        return(
-            <NotFoundPage></NotFoundPage>
-        )
-    }
-    
+    useEffect(()=> {
+        if (render == 'false') {
+            console.log(render);
+            
+            navigate('/login');
+        }
+
+    }, [render])
     return children;
 }

@@ -1,0 +1,33 @@
+/* Contenedor principal */
+.regionales-container {
+    background-color: #87CEEB;
+    gap: 1vw;
+}
+
+/* Columna izquierda (Texto y botones) */
+.left-column {
+    flex: 1;
+}
+
+/* Columna derecha (Imagen) */
+.right-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Imagen ajustada a las dimensiones especificadas */
+.regional-image {
+    object-fit: cover;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones de selección */
+.transition-button {
+    transition: transform 0.3s ease;
+}
+
+.transition-button:hover {
+    transform: scale(1.05);
+}
