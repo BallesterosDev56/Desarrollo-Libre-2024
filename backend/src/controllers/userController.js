@@ -27,7 +27,11 @@ export async function loginUser(req, res) {
         if(!result){
             return res.status(500).json({success: false, message: "wrong password or email"})
         }else if(data.userPassword == result.contrasena){
-            return res.status(201).json({success: true, message: 'Successfull login', result: result})
+            if(result.tipo == "Admin"){
+                return res.status(201).json({success: true, message: 'Successfull admin login', result: result})
+            }else{
+                return res.status(201).json({success: true, message: 'Successfull login', result: result})
+            }
         }else{
             return res.status(500).json({success: false, message: "wrong password or email"})
         }

@@ -23,7 +23,7 @@ CREATE TABLE bikes(
     precio_d INT,
     regional VARCHAR(20)
 );
-SELECT *from bikes;
+
 insert into bikes (marca, color, estado, url_img, precio_d, regional, descripcion) values("Bicicleta de Ruta Roca Everest Carbono", "Negro", false, "https://todoparaciclismo.com/cdn/shop/files/IMG_8142-_1_300x.jpg?v=170913947", 70000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
 ("Bicicleta Optimus Tucana Shimano", "Azul", false, "https://todoparaciclismo.com/cdn/shop/files/DSC_0395_300x.jpg?v=1708458276", 100000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
 ("Bicicleta de Ruta Roca Everest Carbono", "Negro", false, "https://todoparaciclismo.com/cdn/shop/files/IMG_8142-_1_300x.jpg?v=170913947", 70000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
@@ -41,7 +41,16 @@ CREATE TABLE rentals(
    FOREIGN KEY (id_user) REFERENCES users(user_id),
    FOREIGN KEY (id_bike) REFERENCES bikes(bike_id)
    );
-   select * from rentals;
-   UPDATE rentals SET estado = true WHERE id_bike = 3 AND id_user = 5;
-drop table rentals;
+   select * from bikes;
+
 insert into rentals(price, regional,month,estado, id_user, id_bike) values(20, "Antioquia", "Enero", false, 2, 2),(30, "Antioquia", "Enero",false,1,1),(20, "Antioquia", "Febrero",false,1,1),(80, "Antioquia", "Febrero",false,1,1),(20, "Cundinamarca", "Enero",false,1,1),(20, "Valle", "Enero", false,1,1),(20, "Caldas", "Enero", false,1,1),(20, "Atlantico", "Enero", false,1,1);
+
+CREATE TABLE eventos(
+event_id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+location VARCHAR(100),
+regional VARCHAR(20),
+date VARCHAR(40),
+n_inscritos INT
+);
+drop table eventos;
