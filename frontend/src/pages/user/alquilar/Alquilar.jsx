@@ -16,7 +16,6 @@ export const Alquilar = () => {
   const navigate = useNavigate()
   //hacemos el get para traer una cicla por el id:
   useEffect(() => {
-
     async function getBikeData() {
       try {
         const response = await fetch(`http://localhost:3000/bike/${bike_id}`, {
@@ -89,6 +88,8 @@ export const Alquilar = () => {
       navigate("/login")
     }else{
       setTotalCost(calculateTotalDays(startDate, endDate) * bike.precio_d);
+      console.log("hola");
+      navigate("/pagar")
     }
   };
 

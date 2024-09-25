@@ -41,7 +41,8 @@ CREATE TABLE rentals(
    FOREIGN KEY (id_user) REFERENCES users(user_id),
    FOREIGN KEY (id_bike) REFERENCES bikes(bike_id)
    );
-   select * from bikes;
+   select * from rentals;
+   UPDATE rentals SET estado = true, price = 14 WHERE id_bike = 2 AND id_user = 2;
 
 insert into rentals(price, regional,month,estado, id_user, id_bike) values(20, "Antioquia", "Enero", false, 2, 2),(30, "Antioquia", "Enero",false,1,1),(20, "Antioquia", "Febrero",false,1,1),(80, "Antioquia", "Febrero",false,1,1),(20, "Cundinamarca", "Enero",false,1,1),(20, "Valle", "Enero", false,1,1),(20, "Caldas", "Enero", false,1,1),(20, "Atlantico", "Enero", false,1,1);
 
@@ -50,7 +51,14 @@ event_id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(100),
 location VARCHAR(100),
 regional VARCHAR(20),
-date VARCHAR(40),
+fecha VARCHAR(40),
 n_inscritos INT
 );
+
 drop table eventos;
+
+insert into eventos(name,location,regional,fecha, n_inscritos) values("Vuelta por Antioquia", "Carrera 13 # 1-16", "Antioquia", "2024/09/01", 0),
+("Vuelta por Antioquia", "Carrera 13 # 1-16", "Antioquia", "2024/09/01", 0),
+("Vuelta por Antioquia", "Carrera 13 # 1-16", "Antioquia", "2024/09/01", 0),
+("Vuelta por Antioquia", "Carrera 13 # 1-16", "Antioquia", "2024/09/01", 0),
+("Vuelta por Antioquia", "Carrera 13 # 1-16", "Antioquia", "2024/09/01", 0)

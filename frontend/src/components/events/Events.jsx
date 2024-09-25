@@ -20,9 +20,7 @@ export const Events = () => {
     const region = event.target.value;
     setSelectedRegion(region);
     // console.log(region);
-
     fetchEvents(region).then((response)=> {
-        console.log(response);
         setEvents(...[response.result])
     })
     setLoading(true);
@@ -39,7 +37,6 @@ export const Events = () => {
   return (
     <div className="container mt-5">
       <h2 className="text-center display-3 my-5">Eventos que pueden ser de tu interés</h2>
-
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="form-group">
