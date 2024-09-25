@@ -1,14 +1,49 @@
 import { Link } from "react-router-dom"
+import logo from '../../assets/ECOSENA_ONLY.png'
 
 export const Header = ()=> {
-    return(
-        <header className="container-fluid d-flex justify-content-end shadow-lg py-4">
-        <div className="login--container">
-            <Link className="text-decoration-none fs-4 mx-3" to={'/login'}>Iniciar sesión</Link>
-        </div>
-        <div className="register--container">
-            <Link className="text-decoration-none fs-4 mx-3" to={'/register'}>Regístrate</Link>
-        </div>
-    </header>
-    )
+    return (
+        <header>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light px-5">
+            <div className="container-fluid">
+              {/* Logo y Titulo */}
+              <a className="navbar-brand d-flex align-items-center" href="#">
+                <img 
+                  src={logo} 
+                  alt="Logo" 
+                  width="100" 
+                  height="100" 
+                  className="d-inline-block align-text-top" 
+                />
+                <span className="ms-2 fs-1">ECO <span className="fs-1">SENA</span></span>
+              </a>
+    
+              {/* Botón para moviles */}
+              <button 
+                className="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+    
+              {/* Navbar */}
+              <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <a className="nav-link fs-5" href="#">Inicia Sesión</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link fs-5" href="#">Regístrate</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+      );
 }
