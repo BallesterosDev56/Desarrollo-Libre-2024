@@ -92,7 +92,7 @@ export const Register = ()=> {
                         <label className="form-check-label fw-lighter" htmlFor="flexCheckDefault">
                             Acepto los terminos y condiciones
                         </label>
-                        <input className="form-check-input" type="checkbox" value=""/>
+                        <input className="form-check-input" type="checkbox" value="" required/>
                     </div>
                     <button type="submit" className="btn btn-success w-100 mt-4">Registrarse</button>
                     <div className="text-center mt-3">

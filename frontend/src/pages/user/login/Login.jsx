@@ -15,7 +15,6 @@ export const Login = ()=> {
 
     //creamos la funcion que maneja los datos del formulario:
     const onSubmit = (data)=> {
-        console.log(data);
         //creamos el objeto con los datos del usuario
         const userData = {
             userEmail : data.userEmail,
@@ -24,10 +23,13 @@ export const Login = ()=> {
 
         //hacemos el fetch al inicio de sesión del usuario:
         fetchLogin(userData).then((response)=> {
+            console.log(response);
+            
             if (response.success) {
                 // if (response.userType == 'Admin') {
                 //     console.log(response);
                 // }
+                
                 login();
                 setRender(true);
 
