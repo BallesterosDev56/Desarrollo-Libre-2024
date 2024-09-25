@@ -4,13 +4,12 @@ import { ZodError } from "zod"
 
 export async function createEventContoller(req, res) {
     try{
-        const data = updateBikeSchema.parse(req.body)
-        const result = await updateBikeState(data.bikeId, true)
-        const result2 = await postNewRent(data)
-        if(!result || !result2){
-            return res.status(500).json({success: false, message: "The bike doesn't exist"})
+        const data = createEventSchema.parse(req.body)
+        const result = await createEvent(data)
+        if(!result){
+            return res.status(500).json({success: false, message: "Error creating the event"})
         }else{
-            return res.status(200).json({success: true, message: 'Successfull rent', result: result})
+            return res.status(200).json({success: true, message: 'Event created', result: result})
         }
     }catch(err){
         if(err instanceof ZodError){
@@ -24,9 +23,7 @@ export async function createEventContoller(req, res) {
 export async function getEventsByRegionalController(req,res) {
     try{
         const data = regionalEventSchema.parse(req.params.region)
-        
         const result = await getEventByRegional(data)
-        console.log(result);
         if(!result){
             return res.status(500).json({success: false, message: "No events in this regional"})
         }else{

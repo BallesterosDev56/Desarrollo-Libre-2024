@@ -2,7 +2,9 @@ import { db } from "../config/db.js"
 
 export async function createEvent(data) {
     try{
-        const [result] = await db.query('INSERT INTO eventos (name, location, regional, date, n_inscritos) VALUES (?,?,?,?)', [data.name, data.location, data.regional, data.date, 0])
+        console.log(data);
+        
+        const [result] = await db.query('INSERT INTO eventos (name, location, regional, fecha, n_inscritos) VALUES (?,?,?,?,?)', [data.name, data.location, data.regional, data.date, 1])
         if(result.affectedRows == 0){
             return false
         }else{
