@@ -1,11 +1,10 @@
-import { bikeRegionSchema, updateBikeSchema, payBikeRentSchema } from "../schemas/bikeSchema.js"
-import { getBikesByRegion, updateBikeState } from "../repository/bikeRepo.js"
+import { bikeRegionSchema, updateBikeSchema, payBikeRentSchema, bikeIdSchema } from "../schemas/bikeSchema.js"
+import { getBikesByRegion, updateBikeState, getBikesById } from "../repository/bikeRepo.js"
 import { postNewRent, payRent } from "../repository/rentRepo.js"
 import { ZodError } from "zod"
 
 export async function getBikes(req, res){
     try{
-        console.log(req.body);
         const region = bikeRegionSchema.parse(req.params.region)
         const result = await getBikesByRegion(region)
         
@@ -51,6 +50,25 @@ export async function payBikeRent(req, res){
             return res.status(500).json({success: false, message: "The bike doesn't exist"})
         }else{
             return res.status(200).json({success: true, message: 'Successfull payment', result: result})
+        }
+    }catch(err){
+        if(err instanceof ZodError){
+            return res.status(500).json({success: false, message: 'Data format error', error: err.errors})
+        }else{
+            res.status(500).json({success: false, message: 'Internal server error', error: err})
+        }
+    }
+}
+
+export async function getBike(req, res) {
+    try{
+        const region = bikeIdSchema.parse(req.params.id)
+        const result = await getBikesById(region)
+        
+        if(!result){
+            return res.status(500).json({success: false, message: "No bikes available in this region"})
+        }else{
+            return res.status(200).json({success: true, message: 'Successfull get', result: result})
         }
     }catch(err){
         if(err instanceof ZodError){
