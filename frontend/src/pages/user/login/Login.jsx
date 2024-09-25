@@ -5,10 +5,12 @@ import { fetchLogin } from '../../../logic/fetchLogin/FetchLogin'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../auth/authUser/AuthUser'
 import { useEffect, useState } from 'react'
+import { useAdmin } from '../../../auth/authAdmin/AuthAdmin'
 
 export const Login = ()=> {
 
     const {register, handleSubmit, reset, formState: {errors}} = useForm();
+    const {isAdmin} = useAdmin();
     const navigate = useNavigate();
     const {login} = useAuth();
     const [render, setRender] = useState(null);
@@ -20,17 +22,16 @@ export const Login = ()=> {
             userEmail : data.userEmail,
             userPassword : data.userPassword,
         }
+        
 
         //hacemos el fetch al inicio de sesión del usuario:
         fetchLogin(userData).then((response)=> {
-            console.log(response.result);
-
             
             if (response.success) {
-                // if (response.userType == 'Admin') {
-                //     console.log(response);
-                // }
-                console.log(response.result.user_id);
+                if (response.result.tipo == 'Admin') {
+                    isAdmin();
+                    navigate('/admin_home');
+                }
                 
                 sessionStorage.setItem('userData', response.result.user_id);
                 sessionStorage.setItem('userEstrato', response.result.estrato);

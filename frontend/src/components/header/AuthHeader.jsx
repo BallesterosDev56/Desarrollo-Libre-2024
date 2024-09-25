@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import logo from '../../assets/ECOSENA_ONLY.png'
+import title from '../../assets/title.png'
 
 export const AuthHeader = ()=> {
     return (
@@ -40,10 +41,7 @@ export const AuthHeader = ()=> {
               <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a className="nav-link fs-4" href="/login">Inicia Sesión</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link fs-4" href="/register">Regístrate</a>
+                    <i className="fa-solid fa-user fa-2xl mx-5"></i>
                   </li>
                 </ul>
               </div>
