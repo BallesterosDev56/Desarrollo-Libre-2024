@@ -7,6 +7,7 @@ import { Regionales } from '../../../components/regionales/Regionales';
 import { Slogan } from '../../../components/slogan/Slogan';
 import { Footer } from '../../../components/footer/Footer';
 import { Introduction } from '../../../components/introduction/Introduction';
+import { Brands } from '../../../components/brands/Brands';
 
 export const Home = ()=> {
     const [renderAuth, setRenderAuth] = useState(false);
@@ -30,6 +31,7 @@ export const Home = ()=> {
                     <Regionales></Regionales>
                     <Introduction></Introduction>
                     <Slogan></Slogan>
+                    <Brands></Brands>
                     <Footer></Footer>
                 </>
                 
@@ -43,6 +45,7 @@ export const Home = ()=> {
                     <Introduction></Introduction>
                     <Regionales></Regionales>
                     <Slogan></Slogan>
+                    <Brands></Brands>
                     <Footer></Footer>
                 </>
             }

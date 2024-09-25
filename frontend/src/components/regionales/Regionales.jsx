@@ -13,18 +13,18 @@ export const Regionales = () => {
 
     const regions = [
         { name: "Cundinamarca" },
-        { name: "Valle del Cauca" },
+        { name: "Valle" },
         { name: "Antioquia" },
         { name: "Caldas" },
-        { name: "Atlántico" }
+        { name: "Atlantico" }
     ];
 
     return (
         <main className="col-12 d-flex justify-content-between align-items-center regionales-container">
             {/* Columna izquierda con el texto y botones */}
             <div className="left-column col-8 text-white text-center ">
-                <h2 className="text-shadow text-white fw-bold display-3 mb-5">Selecciona tu regional más cercana...</h2>
-                <div className="regionales--container d-flex justify-content-center px-5">
+                <h2 className="text-shadow text-white fw-bold display-3 mt-5">Selecciona tu regional más cercana...</h2>
+                <div className="regionales--container d-flex justify-content-center mb-3 px-5">
                     {regions.map((region, index) => (
                         <button 
                             key={index} 

@@ -1,5 +1,6 @@
 .login--section {
-    background-image: url('../../../assets/bike-background.jpg');
+    background-image: url('../../../assets/station-bike.jpg');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }

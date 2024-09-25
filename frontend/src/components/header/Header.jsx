@@ -5,7 +5,7 @@ import title from '../../assets/title.png'
 export const Header = ()=> {
     return (
         <header>
-          <nav className="bg--custom navbar navbar-expand-lg navbar-light px-3">
+          <nav className="bg--custom navbar navbar-expand-lg navbar-light px-3 shadow">
             <div className="container-fluid">
               {/* Logo y Titulo */}
               <a className="navbar-brand d-flex align-items-center" href="/home">
@@ -41,10 +41,10 @@ export const Header = ()=> {
               <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a className="nav-link fs-3" href="/login">Inicia Sesión</a>
+                    <a className="nav-link fs-4" href="/login">Inicia Sesión</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link fs-3" href="/register">Regístrate</a>
+                    <a className="nav-link fs-4" href="/register">Regístrate</a>
                   </li>
                 </ul>
               </div>

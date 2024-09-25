@@ -1,0 +1,16 @@
+.brands--container {
+    background-color: #FFFF;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .logo {
+    width: 100px;
+  }
+  .ibm-logo {
+    width: 100px;
+  }
+  .zona-logo {
+    width: 250px;
+  }

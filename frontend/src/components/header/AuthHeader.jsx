@@ -4,7 +4,7 @@ import logo from '../../assets/ECOSENA_ONLY.png'
 export const AuthHeader = ()=> {
     return (
         <header>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
+          <nav className="navbar navbar-expand-lg navbar-light shadow bg-light px-3">
             <div className="container-fluid"    >
               {/* Logo y Titulo */}
               <a className="navbar-brand d-flex align-items-center" href="/home">

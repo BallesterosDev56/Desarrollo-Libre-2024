@@ -58,7 +58,7 @@ export const Register = ()=> {
 
     return(
         <section className="register--section">
-            <div className="container d-flex align-items-center justify-content-center py-4 min-vh-100">
+            <div className="container d-flex align-items-center justify-content-end py-4 min-vh-100">
                 <div className="card shadow-lg px-4 col-7">
                 <div className="card-body">
                     <h2 id="formTitle" className="card-title text-center mb-4 fs-1">Regístrate en ECO SENA</h2>

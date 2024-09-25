@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import './bikeCard.css'
 
 
 export const BikeCard = ({ marca, imagen, id, regional}) => {
 
   const navigate = useNavigate();
+  const state = 'Disponible'
 
   const handleOnClick = ()=> {
       navigate(`/home/${regional}/${id}`);
@@ -11,9 +13,10 @@ export const BikeCard = ({ marca, imagen, id, regional}) => {
 
   return (
     <div
-      className="card shadow-sm col-3 "
+      className="card shadow-sm col-3 hover--div"
       style={{backgroundColor: "#f5f5f5", border: "none" }}
     >
+      <div className="card-badge bg-warning">{state}</div>
       <img
         src={imagen}
         className="card-img-top"
@@ -29,8 +32,7 @@ export const BikeCard = ({ marca, imagen, id, regional}) => {
         </h5>
         <button
         onClick={handleOnClick}
-          className="btn btn-primary my-3"
-          style={{ backgroundColor: "#198754", borderColor: "#198754" }}
+          className="bg--sena btn btn-primary my-3"
         >
           Alquilar
         </button>

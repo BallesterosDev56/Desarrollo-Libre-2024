@@ -56,7 +56,7 @@ export const Login = ()=> {
 
     return(
         <section className="login--section">
-            <div className="container d-flex align-items-center justify-content-center min-vh-100">
+            <div className="container d-flex align-items-center justify-content-end min-vh-100">
                 <div className="card shadow-lg p-4" style={{width: '28rem'}}>
                 <div className="card-body">
                     <h2 id="formTitle" className="card-title text-center mb-4 fs-1">Inicia Sesión en ECO SENA</h2>

@@ -16,8 +16,8 @@ export const Introduction = () => {
             
             {/* Columna izquierda con el texto y botones */}
             <div className="col-6 left-column text-white text-center p-4">
-                <h2 className="text-shadow text-black fw-bold display-5 mb-4">Alquila Bicicletas y Cuida del Medio Ambiente</h2>
-                <div className="d-flex flex-column align-items-center">
+                <h2 className="text-shadow text-black fw-bold display-5 mb-4">Alquila Bicicletas mientras Cuidas del Medio Ambiente</h2>
+                <div className="d-flex flex-column align-items-center my-5">
                     <p className='text-secondary fs-4'>Únete a la revolución verde y muévete de forma sostenible con EcoSena.</p>
                 </div>
             </div>
