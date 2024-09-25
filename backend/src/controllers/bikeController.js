@@ -5,8 +5,10 @@ import { ZodError } from "zod"
 
 export async function getBikes(req, res){
     try{
-        const region = bikeRegion.parse(req.body.region)
+        console.log(req.body);
+        const region = bikeRegionSchema.parse(req.body.region)
         const result = await getBikesByRegion(region)
+        
         if(!result){
             return res.status(500).json({success: false, message: "No bikes available in this region"})
         }else{
@@ -48,7 +50,7 @@ export async function payBikeRent(req, res){
         if(!result || !result2){
             return res.status(500).json({success: false, message: "The bike doesn't exist"})
         }else{
-            return res.status(200).json({success: true, message: 'Successfull rent', result: result})
+            return res.status(200).json({success: true, message: 'Successfull payment', result: result})
         }
     }catch(err){
         if(err instanceof ZodError){
