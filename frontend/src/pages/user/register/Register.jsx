@@ -61,7 +61,7 @@ export const Register = ()=> {
             <div className="container d-flex align-items-center justify-content-center py-4 min-vh-100">
                 <div className="card shadow-lg px-4 col-7">
                 <div className="card-body">
-                    <h2 id="formTitle" className="card-title text-center mb-4 fs-1">Registrate en ECO SENA</h2>
+                    <h2 id="formTitle" className="card-title text-center mb-4 fs-1">Regístrate en ECO SENA</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} id="registerForm">
                     <div className="mb-3">
@@ -90,7 +90,7 @@ export const Register = ()=> {
                     </div>
                     <div className="form-check">
                         <label className="form-check-label fw-lighter" htmlFor="flexCheckDefault">
-                            Acepto los terminos y condiciones
+                            Acepto los términos y condiciones
                         </label>
                         <input className="form-check-input" type="checkbox" value="" required/>
                     </div>

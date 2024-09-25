@@ -35,7 +35,7 @@ export const Login = ()=> {
                 setRender(true);
 
             } else {
-                console.log(response.error);
+                console.log(response.message);
                 
             }
             
