@@ -29,3 +29,17 @@ export async function getEventByRegional(data) {
     }
 }
 
+
+export async function getEventById(data) {
+    try{
+        const [result] = await db.query('SELECT * FROM eventos WHERE event_id = ?', [data])
+        if(result.length == 0){
+            return null
+        }else{
+            return result[0]
+        }
+    }catch(err){
+        console.log(err)
+        return 'Error'
+    }
+}

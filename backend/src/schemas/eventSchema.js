@@ -9,3 +9,5 @@ export const createEventSchema = z.object({
 })
 
 export const regionalEventSchema = z.string()
+
+export const idEventSchema = z.string()
