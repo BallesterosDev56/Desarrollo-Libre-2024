@@ -19,7 +19,7 @@ CREATE TABLE bikes(
     descripcion VARCHAR(400),
     url_img VARCHAR(170),
     precio_d INT,
-    regional VARCHAR(20),
+    regional VARCHAR(20)
 );
 SELECT *from bikes;
 insert into bikes (marca, color, estado, url_img, precio_d, regional, descripcion) values("Bicicleta de Ruta Roca Everest Carbono", "Negro", false, "https://todoparaciclismo.com/cdn/shop/files/IMG_8142-_1_300x.jpg?v=170913947", 70000,"Antioquia", "Una cicla hiper chevere mejor dicho una berraquera de bicicleta dios mio santo que cosa tan preciosa y bonita"),
@@ -39,5 +39,6 @@ CREATE TABLE rentals(
    FOREIGN KEY (id_user) REFERENCES users(user_id),
    FOREIGN KEY (id_bike) REFERENCES bikes(bike_id)
    );
+   select * from rentals;
 drop table rentals;
 insert into rentals(price, regional,month,estado, id_user, id_bike) values(20, "Antioquia", "Enero", false, 2, 2),(30, "Antioquia", "Enero",false,1,1),(20, "Antioquia", "Febrero",false,1,1),(80, "Antioquia", "Febrero",false,1,1),(20, "Cundinamarca", "Enero",false,1,1),(20, "Valle", "Enero", false,1,1),(20, "Caldas", "Enero", false,1,1),(20, "Atlantico", "Enero", false,1,1);
