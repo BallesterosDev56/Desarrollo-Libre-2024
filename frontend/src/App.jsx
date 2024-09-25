@@ -14,6 +14,7 @@ import { Regional } from './pages/user/regional/Regional';
 import { Login } from './pages/user/login/Login';
 import { Register } from './pages/user/register/Register';
 import { Alquilar } from './pages/user/alquilar/Alquilar';
+import { Pagar } from './pages/user/pagar/Pagar';
 
 //creamos el router provider con las rutas y los componentes:
 const routes = createBrowserRouter([
@@ -41,6 +42,10 @@ const routes = createBrowserRouter([
     path: '/home/:regional/:bike_id',
     element: <Alquilar></Alquilar>
   },
+  {
+    path: '/pagar',
+    element: <Pagar></Pagar>
+  }
 ]);
 
 

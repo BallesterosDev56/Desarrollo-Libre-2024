@@ -11,7 +11,7 @@ export async function getTotalStonks(){
 
 export async function getTotalStonksByRegionalAndMonth(regional, month) {
     try{
-        const [result] = await db.query('SELECT sum(price) as total FROM rentals WHERE regional = ? AND month = ?', [regional, month])
+        const [result] = await db.query('SELECT sum(price) as total FROM rentals WHERE regional = ? AND month = ? AND estado = ?', [regional, month,true])
         return result[0].total
     }catch(err){
         console.log(err)
@@ -20,7 +20,7 @@ export async function getTotalStonksByRegionalAndMonth(regional, month) {
 
 export async function getTotalStonksByMonth(month) {
     try{
-        const [result] = await db.query('SELECT sum(price) as total FROM rentals WHERE month = ?', [month])
+        const [result] = await db.query('SELECT sum(price) as total FROM rentals WHERE month = ? AND estado = ?', [month, true])
         return result[0].total
     }catch(err){
         console.log(err)
