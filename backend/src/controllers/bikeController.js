@@ -6,7 +6,7 @@ import { ZodError } from "zod"
 export async function getBikes(req, res){
     try{
         console.log(req.body);
-        const region = bikeRegionSchema.parse(req.body.region)
+        const region = bikeRegionSchema.parse(req.params.region)
         const result = await getBikesByRegion(region)
         
         if(!result){
