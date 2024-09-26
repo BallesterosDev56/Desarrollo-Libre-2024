@@ -4,7 +4,6 @@ import "./analitics.css";
 import { useState, useEffect } from "react";
 import { AuthHeader } from "../../../components/header/AuthHeader";
 import { fetchStonks } from "../../../logic/fetchStonks/fetchStonks";
-import { joinEventSuccess } from "../../../helpers/alerts/Alerts";
 
 Chart.register(ArcElement, Tooltip, Legend);
 
@@ -12,6 +11,7 @@ export const Analitics = () => {
   const [selectedRegion, setSelectedRegion] = useState("Septiembre");
   const [datos, setDatos] = useState([353500, 810500, 428500, 132500, 101500]);
   const [total, setTotal] = useState(1826500)
+  const [sugerencia, setSugerencia] = useState("")
   const [loading, setLoading] = useState(false);
   const months = {
     Enero: "Enero",
@@ -23,9 +23,6 @@ export const Analitics = () => {
     Julio: "Julio",
     Agosto: "Agosto",
     Septiembre: "Septiembre",
-    Octubre: "Octubre",
-    Noviembre: "Noviembre",
-    Diciembre: "Diciembre",
   };
 
   const data = {
@@ -68,11 +65,13 @@ export const Analitics = () => {
       setDatos([...ganacias]);
       console.log(data.datasets[0].data);
     });
+
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 1500);
   };
+
 
   return (
     <>
@@ -122,15 +121,6 @@ export const Analitics = () => {
                 <h3>En el mes {selectedRegion} se recaudo un total de ${total}</h3>
                 <Pie data={data} className="pie" />
               </div>
-              <textarea
-                name=""
-                id="prompt"
-                className="form-control mb-3"
-                placeholder="Escribe tu pronóstico aquí"
-                ></textarea>
-              <button className="btn btn-primary w-100">
-                Analizar Pronóstico con IA
-              </button>
             </>
           )}
         </div>
