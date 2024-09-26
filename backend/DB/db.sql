@@ -45,10 +45,10 @@ n_inscritos INT
 
 
 
-insert into users (nombre, documento, estrato,correo,contrasena,tipo) values("Sena", "1234567891", 1, "sena@sena.edu.co", "ecosena@", "Admin");
 
 INSERT INTO users (nombre, documento, estrato, correo, contrasena, tipo)
 VALUES
+("Sena", "1234567891", 1, "sena@sena.edu.co", "ecosena@", "Admin"),
 ("Juan Perez", "123456789", "3", "juan.perez@gmail.com", "password123@", "user"),
 ("María García", "987654321", "4", "maria.garcia@gmail.com", "password123@", "user"),
 ("Carlos López", "456789123", "2", "carlos.lopez@gmail.com", "password123@", "user"),
@@ -73,60 +73,53 @@ VALUES
 
 INSERT INTO rentals (price, regional, month, estado)
 VALUES
-(100000, "Quindio", "Septiembre", TRUE),
-(72000, "Quindio", "Octubre", TRUE),
-(72000, "Quindio", "Noviembre", TRUE),
-(90000, "Antioquia", "Diciembre", TRUE),
-(63000, "Antioquia", "Enero", TRUE),
-(105000, "Antioquia", "Febrero", TRUE),
-(54000, "Valle", "Marzo", TRUE),
-(60000, "Valle", "Abril", TRUE),
-(108000, "Valle", "Mayo", TRUE),
-(120000, "Cundinamarca", "Junio", TRUE),
-(87000, "Cundinamarca", "Julio", TRUE),
-(72000, "Cundinamarca", "Agosto", TRUE),
-(57000, "Caldas", "Septiembre", TRUE),
-(96000, "Caldas", "Octubre", TRUE),
-(60000, "Caldas", "Noviembre", TRUE),
-(90000, "Quindio", "Diciembre", TRUE),
-(72000, "Quindio", "Enero", TRUE),
-(102000, "Quindio", "Febrero", TRUE),
-(114000, "Antioquia", "Marzo", TRUE),
-(75000, "Antioquia", "Abril", TRUE),
-(75000, "Antioquia", "Mayo", TRUE),
-(66000, "Valle", "Junio", TRUE),
-(90000, "Valle", "Julio", TRUE),
-(108000, "Valle", "Agosto", TRUE),
-(108000, "Cundinamarca", "Septiembre", TRUE),
-(60000, "Cundinamarca", "Octubre", TRUE),
-(117000, "Cundinamarca", "Noviembre", TRUE),
-(120000, "Caldas", "Diciembre", TRUE),
-(90000, "Caldas", "Enero", TRUE),
-(78000, "Caldas", "Febrero", TRUE),
-(57000, "Quindio", "Marzo", TRUE),
-(75000, "Quindio", "Abril", TRUE),
-(90000, "Quindio", "Mayo", TRUE),
-(78000, "Antioquia", "Junio", TRUE),
-(75000, "Antioquia", "Julio", TRUE),
-(75000, "Antioquia", "Agosto", TRUE),
-(108000, "Valle", "Septiembre", TRUE),
-(84000, "Valle", "Octubre", TRUE),
-(108000, "Valle", "Noviembre", TRUE),
-(102000, "Cundinamarca", "Diciembre", TRUE),
-(90000, "Cundinamarca", "Enero", TRUE),
-(78000, "Cundinamarca", "Febrero", TRUE),
-(54000, "Caldas", "Marzo", TRUE),
-(60000, "Caldas", "Abril", TRUE),
-(90000, "Caldas", "Mayo", TRUE),
-(108000, "Quindio", "Junio", TRUE),
-(108000, "Quindio", "Julio", TRUE),
-(108000, "Quindio", "Agosto", TRUE),
-(66000, "Antioquia", "Septiembre", TRUE),
-(75000, "Antioquia", "Octubre", TRUE),
-(78000, "Antioquia", "Noviembre", TRUE),
-(108000, "Valle", "Diciembre", TRUE),
-(108000, "Valle", "Enero", TRUE),
-(60000, "Valle", "Febrero", TRUE);
+(104000, "Quindio", "Enero", TRUE),
+(101500, "Quindio", "Febrero", TRUE),
+(230000, "Quindio", "Marzo", TRUE),
+(100000, "Quindio", "Abril", TRUE),
+(620000, "Quindio", "Mayo", TRUE),
+(720000, "Quindio", "Junio", TRUE),
+(720000, "Quindio", "Julio", TRUE),
+(104000, "Quindio", "Agosto", TRUE),
+(101500, "Quindio", "Septiembre", TRUE),
+(124500, "Antioquia", "Enero", TRUE),
+(57300, "Antioquia", "Febrero", TRUE),
+(233000, "Antioquia", "Marzo", TRUE),
+(568000, "Antioquia", "Abril", TRUE),
+(342000, "Antioquia", "Mayo", TRUE),
+(123000, "Antioquia", "Junio", TRUE),
+(235000, "Antioquia", "Julio", TRUE),
+(262000, "Antioquia", "Agosto", TRUE),
+(353500, "Antioquia", "Septiembre", TRUE),
+(234000, "Valle", "Enero", TRUE),
+(432500, "Valle", "Febrero", TRUE),
+(234000, "Valle", "Marzo", TRUE),
+(723000, "Valle", "Abril", TRUE),
+(235000, "Valle", "Mayo", TRUE),
+(234000, "Valle", "Junio", TRUE),
+(231000, "Valle", "Julio", TRUE),
+(142000, "Valle", "Agosto", TRUE),
+(428500, "Valle", "Septiembre", TRUE),
+(132000, "Caldas", "Enero", TRUE),
+(122500, "Caldas", "Febrero", TRUE),
+(125000, "Caldas", "Marzo", TRUE),
+(623000, "Caldas", "Abril", TRUE),
+(141000, "Caldas", "Mayo", TRUE),
+(152000, "Caldas", "Junio", TRUE),
+(512000, "Caldas", "Julio", TRUE),
+(231000, "Caldas", "Agosto", TRUE),
+(132500, "Caldas", "Septiembre", TRUE),
+(234000, "Cundinamarca", "Enero", TRUE),
+(723500, "Cundinamarca", "Febrero", TRUE),
+(536000, "Cundinamarca", "Marzo", TRUE),
+(364000, "Cundinamarca", "Abril", TRUE),
+(823000, "Cundinamarca", "Mayo", TRUE),
+(723000, "Cundinamarca", "Junio", TRUE),
+(572000, "Cundinamarca", "Julio", TRUE),
+(238000, "Cundinamarca", "Agosto", TRUE),
+(810500, "Cundinamarca", "Septiembre", TRUE);
+
+
 
 INSERT INTO eventos (name, location, regional, fecha, n_inscritos)
  VALUES 
@@ -156,7 +149,7 @@ INSERT INTO eventos (name, location, regional, fecha, n_inscritos)
  ("Ruta del Nevado", "Parque de los Fundadores, Villamaría, Caldas", "Caldas", "2024-12-01", 0),
  ("Desafío del Café", "Calle 25 # 12-15, Manizales, Caldas", "Caldas", "2024-10-20", 0),
  ("Encuentro MTB Caldas", "Calle 3 # 2-10, Neira, Caldas", "Caldas", "2024-11-05", 0);
-
+drop table eventos;
 
 INSERT INTO bikes (marca, color, estado, descripcion, url_img, precio_d, regional)
 VALUES

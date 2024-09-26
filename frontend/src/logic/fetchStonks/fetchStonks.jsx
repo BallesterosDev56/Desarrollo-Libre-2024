@@ -5,7 +5,9 @@ export const fetchStonks = async (mes) => {
       const response = await fetch(`http://localhost:3000/stadistics/${mes}`);
       const data = await response.json();
       if(data.success === true){
-        return data.result.regionales;
+        console.log(data.result);
+        
+        return data.result;
       }else{
         console.log(data);
       }

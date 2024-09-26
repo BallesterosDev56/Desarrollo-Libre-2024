@@ -27,8 +27,8 @@ export const Regional = ()=> {
                 !renderAuth ?
                 <>
                     <Header></Header>
-                    <Events></Events>
                     <BikeList regional={regional}></BikeList>
+                    <Events regional={regional}></Events>
                     
                 </>
                 
@@ -39,8 +39,8 @@ export const Regional = ()=> {
                 // si el usuario ESTÁ autenticado se va a rederizar esto:
                 <>
                     <AuthHeader></AuthHeader>
-                    <Events></Events>
                     <BikeList regional={regional}></BikeList>
+                    <Events regional={regional}></Events>
                     
                 </>
             }
