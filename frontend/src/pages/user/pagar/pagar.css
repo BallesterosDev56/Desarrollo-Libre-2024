@@ -1,32 +1,8 @@
-.tarjeta{
-    width: 36rem;
-    height: 19rem;
-    color: white;
-    border: 1px solid black;
-    background-color: rgb(39, 39, 39);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 1rem;
-    border-radius: 15px;
-}
-.numeroTarjetaContainer{
+.pagar--section {
+    height: 100vh;
     width: 100%;
-    font-size: 3rem;
-    display: flex;
-    justify-content: center;
-}
-.inferior{
-    gap: 2rem;
-    font-size: 2rem;
-    display: flex;
-}
-
-.fechaTarjeta{
-    border: 1px solid rgb(124, 27, 27);
-    width: 8rem;
-}
-.nombreTarjetaContainer{
-    border: 1px solid rgb(255, 252, 252);
-    width: 20rem;
+    background-image: url('../../../assets/station-bike.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

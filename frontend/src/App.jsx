@@ -72,9 +72,9 @@ const routes = createBrowserRouter([
   {
     path: '/pagar',
     element: 
-    <ProtectedAdmin>
+    <ProtectedUser>
       <Pagar></Pagar>
-    </ProtectedAdmin>
+    </ProtectedUser>
   }
 ]);
 
