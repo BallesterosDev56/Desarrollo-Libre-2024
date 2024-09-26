@@ -10,8 +10,10 @@ Chart.register(ArcElement, Tooltip, Legend)
 
 export const Analitics = ()=> {
     const [selectedRegion, setSelectedRegion] = useState("");
-    const [datos, setDatos] = useState([15,15,15,15,15]);
+    const [datos, setDatos] = useState([353500,810500,428500,132500,101500]);
     const [loading, setLoading] = useState(false);
+    const [total, setTotal] = useState(1826500)
+    const [mes, setMes] = useState("Septiembre")
     const months = {
       Enero: 'Enero',
       Febrero: 'Febrero',
@@ -52,13 +54,14 @@ export const Analitics = ()=> {
         ],
       };
       const handleRegionChange = (event) => {
-        setDatos([1530500,1115400,1214000,1460500,1089500])
+        setDatos([353500,810500,428500,132500,101500])
+        setMes(event.target.value)
         const region = event.target.value;
         setSelectedRegion(region);
         let ganacias = []
         fetchStonks(region).then((response)=> {
-          console.log(response);
-          response.forEach(region => {
+          setTotal(response.total)
+          response.regionales.forEach(region => {
             ganacias.push(region.totalRegional)
           });
           setDatos([...ganacias])
@@ -104,6 +107,7 @@ export const Analitics = ()=> {
           <>
             <div className="grafico">
               <h1>analitics</h1>
+              <h3>Ganancias netas de {mes} ${total}</h3>
               <Pie data={data} className="pie"/>
             </div>
           </>
