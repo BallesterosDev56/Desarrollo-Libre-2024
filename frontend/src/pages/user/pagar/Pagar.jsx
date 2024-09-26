@@ -1,14 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import "./pagar.css";
 import { paymentSuccess } from "../../../helpers/alerts/Alerts";
-import { useEffect } from "react";
+import { useState } from "react";
 export const Pagar = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    let estrato = sessionStorage.getItem('userEstrato')
+    let total = sessionStorage.getItem("costo")
     e.preventDefault();
-    Swal.fire(paymentSuccess);
+    Swal.fire( {
+        icon: "success",
+        title: "¡Perfecto!",
+        text: `Se ha realizado el pago exitosamente con un valor de $${total}`
+    });
     navigate("/home");
   };
 
