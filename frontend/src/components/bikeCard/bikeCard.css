@@ -17,3 +17,8 @@
 .hover--div:hover {
     transform: scale(1.02);
 }
+.btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: #1a851a;
+    border-color: var(--bs-btn-hover-border-color);
+}
