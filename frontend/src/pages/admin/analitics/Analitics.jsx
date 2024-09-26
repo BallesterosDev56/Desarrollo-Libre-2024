@@ -118,8 +118,8 @@ export const Analitics = () => {
           ) : (
             <>
               <div className="grafico card shadow-sm m-auto p-4 mb-5 bg-body rounded">
-                <h3 className="text-center">Análisis de Recaudación</h3>
-                <h3>En el mes {selectedRegion} se recaudo un total de ${total}</h3>
+                <h3 className="text-center fs-2">Análisis de Recaudación</h3>
+                <p className="text-center">En el mes {selectedRegion} se recaudo un total de <span className="text-success fw-bold"> ${total}</span></p>
                 <Pie data={data} className="pie" />
               </div>
               <textarea
