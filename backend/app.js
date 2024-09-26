@@ -6,7 +6,7 @@ dotenv.config()
 import { bikeRouter } from './src/routes/bikeRoutes.js'
 import { userRouter } from './src/routes/userRoutes.js'
 import { eventRouter } from './src/routes/eventRoutes.js'
-import { getMonthStonks } from './src/controllers/stonksController.js'
+import { getMonthStonks, makePronost, makeTip } from './src/controllers/stonksController.js'
 const app = express()
 app.use(cors())
 
@@ -17,4 +17,6 @@ app.use("/", bikeRouter)
 app.use("/", userRouter)
 app.use("/", eventRouter)
 app.get('/stadistics/:month',getMonthStonks)
+app.post("/pronostico", makePronost)
+app.get("/tip", makeTip)
 app.listen(process.env.PORT, () => {console.log(`Server on port ${process.env.PORT}`)})
