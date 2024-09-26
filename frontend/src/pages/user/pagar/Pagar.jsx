@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import "./pagar.css";
 import { paymentSuccess } from "../../../helpers/alerts/Alerts";
+import { useEffect } from "react";
 export const Pagar = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+    let estrato = sessionStorage.getItem('userEstrato')
     e.preventDefault();
     Swal.fire(paymentSuccess);
     navigate("/home");
