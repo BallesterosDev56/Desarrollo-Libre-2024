@@ -9,11 +9,11 @@ export const Alquilar = () => {
   const [endDate, setEndDate] = useState(null);
   const [estrato, setEstrato] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
-  const [discount, setDiscount] = useState(0)
+  const [discount, setDiscount] = useState(0);
   const [bike, setBike] = useState(null);
   const { bike_id } = useParams();
   const [userId, setUserId] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   //hacemos el get para traer una cicla por el id:
   useEffect(() => {
     async function getBikeData() {
@@ -41,17 +41,17 @@ export const Alquilar = () => {
   useEffect(() => {
     let userID = sessionStorage.getItem("userData");
     let userEstrato = sessionStorage.getItem("userEstrato");
-    if(userID == null){
+    if (userID == null) {
       setUserId("holi");
-    }else{
+    } else {
       setUserId(userID);
-      setEstrato(userEstrato)
+      setEstrato(userEstrato);
     }
 
     async function sendBikeData() {
       try {
-        let region = bike.regional
-        
+        let region = bike.regional;
+
         const info = {
           userId: userId, //id usuario
           bikeId: bike_id,
@@ -84,63 +84,75 @@ export const Alquilar = () => {
     return 0;
   };
   const handleOnClick = () => {
-    if(userId === "holi"){
-      navigate("/login")
-    }else{
+    if (userId === "holi") {
+      navigate("/login");
+    } else {
       setTotalCost(calculateTotalDays(startDate, endDate) * bike.precio_d);
       console.log("hola");
-      navigate("/pagar")
+      navigate("/pagar");
     }
   };
 
   return (
     <>
       {bike ? (
-        <div className="container">
-          <div>
-            <img className="img" src={bike.url_img} alt="" />
-          </div>
-          <div>
-            <h2>{bike.marca}</h2>
-            <p>{bike.descripcion}</p>
-            <div style={{ marginBottom: "10px" }}>
-              <label>Fecha de inicio:</label>
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                selectsStart
-                startDate={startDate}
-                endDate={endDate}
-                placeholderText="Selecciona una fecha de inicio"
-              />
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-md-6">
+              <img className="img-fluid rounded" src={bike.url_img} alt="" />
             </div>
-            <div>
-              <label>Fecha de fin:</label>
-              <DatePicker
-                selected={endDate}
-                onChange={(date) => setEndDate(date)}
-                selectsEnd
-                startDate={startDate}
-                endDate={endDate}
-                minDate={startDate}
-                placeholderText="Selecciona una fecha de fin"
-              />
+            <div className="col-md-6">
+              <h2 className="text-success display-5">{bike.marca}</h2>
+              <p>{bike.descripcion}</p>
+              <div className="mb-3">
+                <label className="form-label fs-3">Fecha de inicio:</label>
+                <br />
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  selectsStart
+                  startDate={startDate}
+                  endDate={endDate}
+                  className="form-control"
+                  placeholderText="Selecciona una fecha de inicio"
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label fs-3">Fecha de fin:</label>
+                <br />
+                <DatePicker
+                  selected={endDate}
+                  onChange={(date) => setEndDate(date)}
+                  selectsEnd
+                  startDate={startDate}
+                  endDate={endDate}
+                  minDate={startDate}
+                  className="form-control"
+                  placeholderText="Selecciona una fecha de fin"
+                />
+              </div>
+              {startDate && endDate ? (
+                <>
+                  <p>
+                    <strong>Días totales:</strong>{" "}
+                    {calculateTotalDays(startDate, endDate)}
+                  </p>
+                  <p>
+                    <strong>Costo total:</strong> $
+                    {calculateTotalDays(startDate, endDate) * bike.precio_d}
+                  </p>
+                </>
+              ) : (
+                <p></p>
+              )}
+              <button className="btn btn-success" onClick={handleOnClick}>
+                Alquilar
+              </button>
             </div>
-            {startDate && endDate ? (
-              <>
-                <p>Dias totales: {calculateTotalDays(startDate, endDate)}</p>
-                <p>Costo:{" "} {calculateTotalDays(startDate, endDate) * bike.precio_d}</p>
-              </>
-            ):
-            (
-              <p></p>
-            )
-            }
-            <button onClick={handleOnClick}>Alquilar</button>
           </div>
         </div>
-      )  :  (
-        <p></p>
+      ) : (
+        <p>Cargando...</p>
       )}
     </>
   );
