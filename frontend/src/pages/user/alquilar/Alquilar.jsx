@@ -88,6 +88,7 @@ export const Alquilar = () => {
       navigate("/login");
     } else {
       setTotalCost(calculateTotalDays(startDate, endDate) * bike.precio_d);
+      sessionStorage.setItem("costo", (calculateTotalDays(startDate, endDate) * bike.precio_d) * 0.95)
       console.log("hola");
       navigate("/pagar");
     }
@@ -139,7 +140,7 @@ export const Alquilar = () => {
                   </p>
                   <p>
                     <strong>Costo total:</strong> $
-                    {calculateTotalDays(startDate, endDate) * bike.precio_d}
+                    {(calculateTotalDays(startDate, endDate) * bike.precio_d) * 0.95}
                   </p>
                 </>
               ) : (
