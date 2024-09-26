@@ -72,8 +72,16 @@ export const Login = ()=> {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="passwordLogin" className="form-label fw-bold">Contraseña</label>
-                        <input {...register('userPassword')} type="password" className="form-control" id="passwordLogin" placeholder="Ingresa tu contraseña" required/>
+                        <input {...register('userPassword', {
+                        pattern: {
+                            value: /^(?=.*[!@#$%^&*()_+{}\[\]:;"'<>,.?~\\/-]).*$/,
+                            message: 'La constraseña requiere un caracter especial *'
+                        },
+                        minLength: 6,
+                        maxLength: 20
+                    })} type="password" className="form-control" id="passwordLogin" placeholder="Ingresa tu contraseña" minLength={6} maxLength={20} required/>
                     </div>
+                    {errors.userPassword && <p className="fs-6 text-danger mt-2">{errors.userPassword.message}</p>}
                     <button type="submit" className="btn btn-success w-100 mt-3">Login</button>
                     <div className="text-center mt-3">
                         <small>¿No tienes cuenta? 

@@ -44,6 +44,8 @@ export const Register = ()=> {
             })
 
             reset();
+        } else {
+            
         }
         
     }
@@ -66,24 +68,38 @@ export const Register = ()=> {
                     <form onSubmit={handleSubmit(onSubmit)} id="registerForm">
                     <div className="mb-3">
                         <label htmlFor="username" className="form-label fw-bold">Nombre completo *</label>
-                        <input {...register('userName')} type="text" className="form-control" id="username" placeholder="Ingresa tu nombre de usuario" required/>
+                        <input {...register('userName', {
+                            required: 'Field required'
+                        })} type="text" className="form-control" id="username" placeholder="Ingresa tu nombre de usuario" required/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="cedula" className="form-label fw-bold">Cédula *</label>
-                        <input {...register('userDocument')} type="number" className="form-control" id="cedula" placeholder="Ingresa tu cédula" min={10} required/>
+                        <input {...register('userDocument', {
+                            required: 'Field required'
+                        })} type="number" className="form-control" id="cedula" placeholder="Ingresa tu cédula" min={10} required/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="emailRegister" className="form-label fw-bold">Correo Electrónico *</label>
-                        <input {...register('userEmail')} type="email" className="form-control" id="emailRegister" placeholder="Ingresa tu email" required/>
+                        <input {...register('userEmail', {
+                            required: 'Field required'
+                        })} type="email" className="form-control" id="emailRegister" placeholder="Ingresa tu email" required/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="estrato" className="form-label fw-bold">Estrato *</label>
-                        <input {...register('userEstrato')} type="number" className="form-control" id="estrato" placeholder="Ingresa tu estrato socioeconómico" min={1} max={6} required/>
+                        <input {...register('userEstrato', {
+                            required: 'Field required'
+                        })} type="number" className="form-control" id="estrato" placeholder="Ingresa tu estrato socioeconómico" min={1} max={6} required/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="passwordRegister" className="form-label fw-bold">Contraseña *</label>
-                        <input {...register('userPassword')} type="password" className="form-control" id="passwordRegister" placeholder="Crea una contraseña" required/>
+                        <input {...register('userPassword', {
+                        pattern: {
+                            value: /^(?=.*[!@#$%^&*()_+{}\[\]:;"'<>,.?~\\/-]).*$/,
+                            message: 'La contraseña requiere un caracter especial'
+                        }
+                    })} type="password" className="form-control" id="passwordRegister" placeholder="Crea una contraseña" required/>
                     </div>
+                    {errors.userPassword && <p className="fs-6 text-danger mt-2">{errors.userPassword.message}</p>}
                     <div className="mb-3">
                         <label htmlFor="repeatPassword" className="form-label fw-bold">Repetir Contraseña *</label>
                         <input {...register('repeatUserPassword')} type="password" className="form-control" id="repeatPassword" placeholder="Repite la contraseña" required/>
