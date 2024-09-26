@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './alquilar.css'
 import DatePicker from "react-datepicker";
 import { differenceInDays } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
@@ -97,10 +98,10 @@ export const Alquilar = () => {
   return (
     <>
       {bike ? (
-        <div className="container mt-5">
+        <div className="container shadow-lg rounded-4 p-5 d-flex justify-content-center align-items-center mt-5">
           <div className="row">
             <div className="col-md-6">
-              <img className="img-fluid rounded" src={bike.url_img} alt="" />
+              <img className="bike--image img-fluid rounded" src={bike.url_img} alt="bike" />
             </div>
             <div className="col-md-6">
               <h2 className="text-success display-5">{bike.marca}</h2>
