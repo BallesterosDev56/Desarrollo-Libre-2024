@@ -10,7 +10,7 @@ import { useAdmin } from '../../../auth/authAdmin/AuthAdmin'
 export const Login = ()=> {
 
     const {register, handleSubmit, reset, formState: {errors}} = useForm();
-    const {isAdmin} = useAdmin();
+    const {isAdmin, isNotAdmin} = useAdmin();
     const navigate = useNavigate();
     const {login} = useAuth();
     const [render, setRender] = useState(null);
@@ -36,6 +36,7 @@ export const Login = ()=> {
                 sessionStorage.setItem('userData', response.result.user_id);
                 sessionStorage.setItem('userEstrato', response.result.estrato);
                 login();
+                isNotAdmin();
                 setRender(true);
 
             } else {

@@ -6,7 +6,7 @@ export const AdminIntroduction = () => {
     const navigate = useNavigate();
 
     const handleOnClick = ()=> {
-        navigate('/admin_home/events');
+        navigate('/admin_home/create_event');
     }
 
     return (

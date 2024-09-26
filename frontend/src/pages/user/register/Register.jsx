@@ -6,6 +6,7 @@ import { registerSuccess } from '../../../helpers/alerts/Alerts'
 import { useAuth } from '../../../auth/authUser/AuthUser'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { noMatchRepeat } from '../../../helpers/alerts/Alerts'
 
 export const Register = ()=> {
     
@@ -45,7 +46,7 @@ export const Register = ()=> {
 
             reset();
         } else {
-            
+            Swal.fire(noMatchRepeat );
         }
         
     }
