@@ -3,7 +3,7 @@ import { rentQuerySchema } from "../schemas/rentSchema.js";
 import { payBikeRentSchema } from "../schemas/bikeSchema.js";
 import { ZodError } from "zod";
 
-let regionales = ['Antioquia','Cundinamarca', 'Valle', 'Caldas', 'Atlantico']
+let regionales = ['Antioquia','Cundinamarca', 'Valle', 'Caldas', 'Quindio']
 export async function getMonthStonks(req, res) {
     try{
         const data = rentQuerySchema.parse(req.params.month)
