@@ -13,7 +13,7 @@ export const BikeCard = ({ marca, imagen, id, regional}) => {
 
   return (
     <div
-      className="card shadow-sm col-3 hover--div"
+      className="card shadow-md col-3 hover--div"
       style={{backgroundColor: "#f5f5f5", border: "none" }}
     >
       <div className="card-badge bg-warning">{state}</div>
