@@ -28,7 +28,7 @@ export const CreateEvent = () => {
       <div className="container-fluid d-flex justify-content-end mt-5">
 
         <div className="row justify-content-center">
-        <h2 className="text-center mb-4 display-5 fw-bold">Crea un nuevo evento</h2>
+        <h2 className="text-center text-white mb-4 display-5 fw-bold">Crea un nuevo evento</h2>
           <div className="col-md-8">
             <div className="card">
               <div className="card-body shadow-lg p-3">

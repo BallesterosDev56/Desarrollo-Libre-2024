@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import './alquilar.css'
 import DatePicker from "react-datepicker";
 import { differenceInDays } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
@@ -98,61 +97,63 @@ export const Alquilar = () => {
   return (
     <>
       {bike ? (
-        <div className="container shadow-lg rounded-4 p-5 d-flex justify-content-center align-items-center mt-5">
-          <div className="row">
-            <div className="col-md-6">
-              <img className="bike--image img-fluid rounded" src={bike.url_img} alt="bike" />
-            </div>
-            <div className="col-md-6">
-              <h2 className="text-success display-5">{bike.marca}</h2>
-              <p>{bike.descripcion}</p>
-              <div className="mb-3">
-                <label className="form-label fs-3">Fecha de inicio:</label>
-                <br />
-                <DatePicker
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date)}
-                  selectsStart
-                  startDate={startDate}
-                  endDate={endDate}
-                  className="form-control"
-                  placeholderText="Selecciona una fecha de inicio"
-                />
+        <section className="event--section d-flex justify-content-center align-items-center">
+          <div className="col-5 bg-white shadow-lg rounded-4 px-5 py-3 d-flex justify-content-center align-items-center my-5 bg-light">
+            <div className="row d-flex justify-content-between">
+              <div className="col-md-6 d-flex align-items-center">
+                <img className="bike--image img-fluid rounded" src={bike.url_img} alt="bike" />
               </div>
-              <div className="mb-3">
-                <label className="form-label fs-3">Fecha de fin:</label>
-                <br />
-                <DatePicker
-                  selected={endDate}
-                  onChange={(date) => setEndDate(date)}
-                  selectsEnd
-                  startDate={startDate}
-                  endDate={endDate}
-                  minDate={startDate}
-                  className="form-control"
-                  placeholderText="Selecciona una fecha de fin"
-                />
+              <div className="col-md-6">
+                <h2 className="text-success display-6 fw-bold">{bike.marca}</h2>
+                <p className="text-secondary">{bike.descripcion}</p>
+                <div className="mb-3">
+                  <label className="form-label fs-5">Fecha de inicio:</label>
+                  <br />
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    selectsStart
+                    startDate={startDate}
+                    endDate={endDate}
+                    className="form-control"
+                    placeholderText="Selecciona una fecha de inicio"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label fs-5">Fecha de fin:</label>
+                  <br />
+                  <DatePicker
+                    selected={endDate}
+                    onChange={(date) => setEndDate(date)}
+                    selectsEnd
+                    startDate={startDate}
+                    endDate={endDate}
+                    minDate={startDate}
+                    className="form-control"
+                    placeholderText="Selecciona una fecha de fin"
+                  />
+                </div>
+                {startDate && endDate ? (
+                  <>
+                    <p>
+                      <strong>Días totales:</strong>{" "}
+                      {calculateTotalDays(startDate, endDate)}
+                    </p>
+                    <p>
+                      <strong>Costo total:</strong> $
+                      {(calculateTotalDays(startDate, endDate) * bike.precio_d) * 0.95}
+                    </p>
+                  </>
+                ) : (
+                  <p></p>
+                )}
+                <button className="btn btn-success" onClick={handleOnClick}>
+                  Alquilar
+                </button>
               </div>
-              {startDate && endDate ? (
-                <>
-                  <p>
-                    <strong>Días totales:</strong>{" "}
-                    {calculateTotalDays(startDate, endDate)}
-                  </p>
-                  <p>
-                    <strong>Costo total:</strong> $
-                    {(calculateTotalDays(startDate, endDate) * bike.precio_d) * 0.95}
-                  </p>
-                </>
-              ) : (
-                <p></p>
-              )}
-              <button className="btn btn-success" onClick={handleOnClick}>
-                Alquilar
-              </button>
             </div>
           </div>
-        </div>
+        </section>
       ) : (
         <p>Cargando...</p>
       )}
