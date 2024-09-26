@@ -33,7 +33,7 @@ export const Events = ({regional}) => {
                 <div className="row justify-content-center">
                   <ul className="list-group list-group-flush">
                     {events.map((event, index) => (
-                      <li key={index} className="list-group-item">
+                      <li key={index} className="list-group-item ms-5">
                         <strong>{event.name}</strong> <br />
                         Fecha: {event.fecha} <br />
                         Ubicación: {event.location} <br />
