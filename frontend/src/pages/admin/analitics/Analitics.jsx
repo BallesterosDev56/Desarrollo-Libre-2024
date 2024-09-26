@@ -7,71 +7,74 @@ import { joinEventSuccess } from "../../../helpers/alerts/Alerts";
 
 Chart.register(ArcElement, Tooltip, Legend);
 
-export const Analitics = () => {
-  const [selectedRegion, setSelectedRegion] = useState("");
-  const [datos, setDatos] = useState([15, 15, 15, 15, 15]);
-  const [loading, setLoading] = useState(false);
-  const months = {
-    Enero: "Enero",
-    Febrero: "Febrero",
-    Marzo: "Marzo",
-    Abril: "Abril",
-    Mayo: "Mayo",
-    Junio: "Junio",
-    Julio: "Julio",
-    Agosto: "Agosto",
-    Septiembre: "Septiembre",
-    Octubre: "Octubre",
-    Noviembre: "Noviembre",
-    Diciembre: "Diciembre",
-  };
+Chart.register(ArcElement, Tooltip, Legend)
 
-  const data = {
-    labels: ["Antioquia", "Cundinamarca", "Valle", "Caldas", "Quindio"],
-    datasets: [
-      {
-        label: "Dinero Recaudado (COP)",
-        data: datos,
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.6)",
-          "rgba(54, 162, 235, 0.6)",
-          "rgba(255, 206, 86, 0.6)",
-          "rgba(75, 192, 192, 0.6)",
-          "rgba(153, 102, 255, 0.6)",
+export const Analitics = ()=> {
+    const [selectedRegion, setSelectedRegion] = useState("");
+    const [datos, setDatos] = useState([353500,810500,428500,132500,101500]);
+    const [loading, setLoading] = useState(false);
+    const [total, setTotal] = useState(1826500)
+    const [mes, setMes] = useState("Septiembre")
+    const months = {
+      Enero: 'Enero',
+      Febrero: 'Febrero',
+      Marzo: 'Marzo',
+      Abril: 'Abril',
+      Mayo: 'Mayo',
+      Junio: 'Junio',
+      Julio: 'Julio',
+      Agosto: 'Agosto',
+      Septiembre: 'Septiembre',
+      Octubre: 'Octubre',
+      Noviembre: 'Noviembre',
+      Diciembre: 'Diciembre'
+      };
+
+    const data = {
+        labels: ['Antioquia', 'Cundinamarca', 'Valle', 'Caldas', 'Quindio'], 
+        datasets: [
+          {
+            label: 'Dinero Recaudado (COP)',
+            data: datos, 
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.6)',  
+              'rgba(54, 162, 235, 0.6)',  
+              'rgba(255, 206, 86, 0.6)',  
+              'rgba(75, 192, 192, 0.6)',  
+              'rgba(153, 102, 255, 0.6)', 
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+            ],
+            borderWidth: 3,
+          },
         ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-        ],
-        borderWidth: 3,
-      },
-    ],
-  };
-
-  const handleRegionChange = (event) => {
-    setDatos([1530500, 1115400, 1214000, 1460500, 1089500]);
-    const region = event.target.value;
-    setSelectedRegion(region);
-    let ganacias = [];
-    fetchStonks(region).then((response) => {
-      console.log(response);
-      response.forEach((region) => {
-        ganacias.push(region.totalRegional);
-      });
-      setDatos([...ganacias]);
-      console.log(data.datasets[0].data);
-    });
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-  };
-
-  return (
-    <div className="container d-flex flex-column shadow-lg rounded-4 pb-4 bg--soft--blue my-3">
+      };
+      const handleRegionChange = (event) => {
+        setDatos([353500,810500,428500,132500,101500])
+        setMes(event.target.value)
+        const region = event.target.value;
+        setSelectedRegion(region);
+        let ganacias = []
+        fetchStonks(region).then((response)=> {
+          setTotal(response.total)
+          response.regionales.forEach(region => {
+            ganacias.push(region.totalRegional)
+          });
+          setDatos([...ganacias])
+          console.log(data.datasets[0].data);
+        })
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+      };
+    return(
+      <div className="container d-flex flex-column shadow-lg rounded-4 pb-4 bg--soft--blue my-3">
       <h2 className="text-center display-4 m-4 mt-2">Elige el mes de tu interés</h2>
       <div className="row justify-content-center">
         <div className="col-md-6">
