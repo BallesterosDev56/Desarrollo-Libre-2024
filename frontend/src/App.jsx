@@ -65,9 +65,9 @@ const routes = createBrowserRouter([
   {
     path: '/admin_home/create_event',
     element: 
-    <ProtectedAdmin>
+    <ProtectedUser>
       <CreateEvent></CreateEvent>
-    </ProtectedAdmin>
+    </ProtectedUser>
   },
   {
     path: '/pagar',

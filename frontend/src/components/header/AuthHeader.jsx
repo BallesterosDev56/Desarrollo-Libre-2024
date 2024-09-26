@@ -1,8 +1,20 @@
-import { Link } from "react-router-dom"
 import logo from '../../assets/ECOSENA_ONLY.png'
 import title from '../../assets/title.png'
+import { useEffect, useState } from "react"
 
 export const AuthHeader = ()=> {
+    const [isUser, setIsUser] = useState(true);
+
+    useEffect(()=> {
+      let isAdmin = sessionStorage.getItem('adminState');
+      if (isAdmin === 'false') {
+        setIsUser(false);
+      } else if (isAdmin === 'true') {
+        setIsUser(true);
+      }
+
+    }, [])
+
     return (
         <header>
           <nav className="navbar navbar-expand-lg navbar-light shadow bg-light px-3">
@@ -40,8 +52,9 @@ export const AuthHeader = ()=> {
               {/* Navbar */}
               <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul className="navbar-nav">
-                  <li className="nav-item">
-                    <i className="fa-solid fa-user fa-2xl mx-5"></i>
+                  <li className="nav-item d-flex flex-row align-items-center">
+                    {isUser? <p className="mt-3 fw-bold fs-4">Usuario</p> : <p className="mt-3 fw-bold fs-4">Admin</p>}
+                    <i className="fa-solid fa-user fa-2xl mx-4"></i>
                   </li>
                 </ul>
               </div>

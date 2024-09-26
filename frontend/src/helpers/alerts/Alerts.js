@@ -43,3 +43,7 @@ export const paymentSuccess = {
     title: "¡Perfecto!",
     text: "Se ha realizado el pago exitosamente",
 }
+export const noMatchRepeat = {
+    icon: "error",
+    title: "Las contraseñas no coiciden",
+}

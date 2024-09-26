@@ -42,8 +42,8 @@ export const Home = ()=> {
                 // si el usuario ESTÁ autenticado se va a rederizar esto:
                 <>
                     <AuthHeader></AuthHeader>
-                    <Introduction></Introduction>
                     <Regionales></Regionales>
+                    <Introduction></Introduction>
                     <Slogan></Slogan>
                     <Brands></Brands>
                     <Footer></Footer>
