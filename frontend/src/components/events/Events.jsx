@@ -29,11 +29,13 @@ export const Events = ({regional}) => {
         <div className="col-md-8">
           {events[0] ? (
             <div className="card">
-              <h2 className="text-center display-3 my-5">Eventos que pueden ser de tu interés</h2>
+              <div className="px-4">
+                <h2 className="text-center display-5 my-5">Eventos que pueden ser de tu interés</h2>
+              </div>
                 <div className="row justify-content-center">
-                  <ul className="list-group list-group-flush">
+                  <ul className="list-group list-group-flush p-2">
                     {events.map((event, index) => (
-                      <li key={index} className="list-group-item">
+                      <li key={index} className="list-group-item ms-5">
                         <strong>{event.name}</strong> <br />
                         Fecha: {event.fecha} <br />
                         Ubicación: {event.location} <br />

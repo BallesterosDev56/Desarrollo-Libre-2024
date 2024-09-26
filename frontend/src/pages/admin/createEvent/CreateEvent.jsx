@@ -25,7 +25,7 @@ export const CreateEvent = () => {
 
   return (
     <section className="event--section d-flex justify-content-center align-items-center">
-      <div className="container-fluid d-flex justify-content-end mt-5">
+      <div className="container-fluid d-flex justify-content-center mt-5">
 
         <div className="row justify-content-center">
         <h2 className="text-center text-white mb-4 display-5 fw-bold">Crea un nuevo evento</h2>

@@ -10,7 +10,7 @@ export const Introduction = () => {
                 <img 
                     src={imageBg} 
                     alt="Regional" 
-                    className="regional-image"
+                    className="img-fluid"
                 />
             </div>
             

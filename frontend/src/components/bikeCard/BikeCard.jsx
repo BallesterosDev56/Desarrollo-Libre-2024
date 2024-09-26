@@ -13,20 +13,20 @@ export const BikeCard = ({ marca, imagen, id, regional}) => {
 
   return (
     <div
-      className="card shadow-sm col-3 hover--div"
+      className="card shadow-md col-3 hover--div"
       style={{backgroundColor: "#f5f5f5", border: "none" }}
     >
       <div className="card-badge bg-warning">{state}</div>
       <img
         src={imagen}
-        className="card-img-top"
+        className="card-img-top my"
         alt={`Bicicleta ${marca}`}
         style={{ height: "200px", objectFit: "cover" }}
       />
       <div className="card-body text-center">
         <h5
-          className="card-title"
-          style={{ color: "#0f5132", fontWeight: "bold" }}
+          className="card-title fs-3"
+          style={{ color: "#0f5132"}}
         >
           {marca}
         </h5>

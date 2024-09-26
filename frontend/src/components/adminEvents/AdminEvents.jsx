@@ -12,7 +12,7 @@ export const AdminEvents = () => {
     return (
         <main className="col-12 d-flex justify-content-between align-items-center introduction--container ">
             {/* Columna izquierda con el texto y botones */}
-            <div className="col-6 left-column text-white text-start p-4 mt-5">
+            <div className="col-5 left-column text-white text-start p-4 mt-5">
                 <h2 className="text-shadow text-black fw-bold display-5 mb-4">Crea eventos de ciclorutas en tu regional</h2>
                 <div className="d-flex flex-column align-items-start my-5">
                     <p className='text-secondary fs-5'>Puedes crear eventos para promover el uso de bicicletas, y así incrementas tus ventas y ayudas al medio ambiente.</p>
@@ -25,7 +25,7 @@ export const AdminEvents = () => {
                 <img 
                     src={imageBg} 
                     alt="Regional" 
-                    className="regional-image"
+                    className="img-fluid"
                 />
             </div>
 

@@ -18,15 +18,5 @@
     align-items: center;
 }
 
-.regional-image {
-    width: 675px;
-}
 
-/* Botones de selección */
-.transition-button {
-    transition: transform 0.3s ease;
-}
 
-.transition-button:hover {
-    transform: scale(1.05);
-}

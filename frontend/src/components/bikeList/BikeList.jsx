@@ -27,7 +27,7 @@ export const BikeList = ({regional})=> {
                 (
                     <>
                         <div className="title">
-                            <h2 className="text-center display-3 my-5">Descubre nuestras bicicletas disponibles</h2>
+                            <h2 className="text-center display-4 my-5">Descubre nuestras bicicletas disponibles</h2>
                         </div>
                         <section id="cards--container">
                             {
