@@ -32,3 +32,14 @@ export const joinEventSuccess = {
     title: "¡En marcha!",
     text: "Se ha registrado al evento correctamente",
 }
+
+export const createEventSuccess = {
+    icon: "success",
+    title: "¡Preparados, listos A PEDALEAR!",
+    text: "Se ha registrado el evento exitosamente",
+}
+export const paymentSuccess = {
+    icon: "success",
+    title: "¡Perfecto!",
+    text: "Se ha realizado el pago exitosamente",
+}
