@@ -16,7 +16,7 @@ export const Regionales = () => {
         { name: "Valle" },
         { name: "Antioquia" },
         { name: "Caldas" },
-        { name: "Atlantico" }
+        { name: "Quindio" }
     ];
 
     return (

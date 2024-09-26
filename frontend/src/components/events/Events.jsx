@@ -8,7 +8,7 @@ export const Events = () => {
   const [loading, setLoading] = useState(false);
 
   const regions = {
-    atlantico: "Atlántico",
+    quindio: "Quindio",
     valle: "Valle",
     antioquia: "Antioquia",
     cundinamarca: "Cundinamarca",

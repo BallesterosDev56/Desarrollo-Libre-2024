@@ -12,7 +12,7 @@ export const Analitics = ()=> {
     const [selectedRegion, setSelectedRegion] = useState("");
     const [datos, setDatos] = useState([15,15,15,15,15]);
     const [loading, setLoading] = useState(false);
-    const regions = {
+    const months = {
       Enero: 'Enero',
       Febrero: 'Febrero',
       Marzo: 'Marzo',
@@ -26,9 +26,9 @@ export const Analitics = ()=> {
       Noviembre: 'Noviembre',
       Diciembre: 'Diciembre'
       };
-      //'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+
     const data = {
-        labels: ['Antioquia', 'Cundinamarca', 'Valle', 'Caldas', 'Atlántico'], 
+        labels: ['Antioquia', 'Cundinamarca', 'Valle', 'Caldas', 'Quindio'], 
         datasets: [
           {
             label: 'Dinero Recaudado (COP)',
@@ -52,7 +52,7 @@ export const Analitics = ()=> {
         ],
       };
       const handleRegionChange = (event) => {
-        setDatos([15,15,15,15,15])
+        setDatos([1530500,1115400,1214000,1460500,1089500])
         const region = event.target.value;
         setSelectedRegion(region);
         let ganacias = []
@@ -82,9 +82,9 @@ export const Analitics = ()=> {
               onChange={handleRegionChange}
             >
               <option value="">Selecciona un mes</option>
-              {Object.keys(regions).map((regionKey) => (
+              {Object.keys(months).map((regionKey) => (
                 <option key={regionKey} value={regionKey}>
-                  {regions[regionKey]}
+                  {months[regionKey]}
                 </option>
               ))}
             </select>
